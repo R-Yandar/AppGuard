@@ -16,8 +16,6 @@
 
 El sistema contempla los siguientes módulos:
 
-- Gestión de usuarios
-- Gestión de guardas
 - Supervisión
 - Clientes
 - Horarios
