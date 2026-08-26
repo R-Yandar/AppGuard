@@ -1,0 +1,498 @@
+/* =========================================================
+   APPGUARD - GESTIÓN DE USUARIOS
+   Estilos complementarios
+   ========================================================= */
+
+
+/* CONTENEDOR PRINCIPAL DE LA GESTIÓN */
+
+.gestion-usuarios {
+    width: 100%;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+   ========================================================= */
+
+.barra-acciones-usuarios {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 18px;
+}
+
+
+/* BUSCADOR */
+
+.buscador-usuarios {
+    width: 100%;
+    max-width: 430px;
+
+    height: 40px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.buscador-usuarios i {
+    position: absolute;
+
+    left: 13px;
+
+    color: #8fa6c7;
+
+    font-size: 14px;
+}
+
+.buscador-usuarios input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 14px 0 39px;
+
+    border: 1px solid #315789;
+    border-radius: 6px;
+
+    outline: none;
+
+    background: rgba(2, 18, 52, 0.9);
+
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+.buscador-usuarios input::placeholder {
+    color: #8fa6c7;
+}
+
+.buscador-usuarios input:focus {
+    border-color: #1688ff;
+}
+
+
+/* BOTÓN NUEVO USUARIO */
+
+.btn-nuevo-usuario {
+    height: 40px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #1263df;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.btn-nuevo-usuario:hover {
+    background: #1674ff;
+
+    box-shadow: 0 0 13px rgba(22, 116, 255, 0.35);
+}
+
+
+/* =========================================================
+   RESUMEN
+   ========================================================= */
+
+.resumen-usuarios {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+.tarjeta-resumen-usuario {
+    min-height: 82px;
+
+    padding: 15px 17px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    background: rgba(2, 18, 52, 0.9);
+
+    border: 1px solid rgba(72, 117, 171, 0.55);
+    border-radius: 8px;
+}
+
+.icono-resumen {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.icono-resumen.azul {
+    background: #1263df;
+}
+
+.icono-resumen.verde {
+    background: #27a464;
+}
+
+.icono-resumen.morado {
+    background: #8c49ab;
+}
+
+.tarjeta-resumen-usuario strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+.tarjeta-resumen-usuario span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #b5c5dc;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   PANEL DEL LISTADO
+   ========================================================= */
+
+.panel-listado-usuarios {
+    width: 100%;
+
+    background: rgba(2, 18, 52, 0.92);
+
+    border: 1px solid rgba(72, 117, 171, 0.55);
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.encabezado-listado-usuarios {
+    min-height: 65px;
+
+    padding: 16px 19px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(72, 117, 171, 0.4);
+}
+
+.encabezado-listado-usuarios h2 {
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+.encabezado-listado-usuarios p {
+    margin-top: 3px;
+
+    color: #9fb2ce;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLA
+   ========================================================= */
+
+.tabla-usuarios-contenedor {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.tabla-usuarios {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    color: #ffffff;
+}
+
+.tabla-usuarios thead {
+    background: rgba(6, 35, 79, 0.96);
+}
+
+.tabla-usuarios th {
+    padding: 11px 13px;
+
+    text-align: left;
+
+    color: #b2c5e0;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    border-bottom: 1px solid rgba(72, 117, 171, 0.4);
+}
+
+.tabla-usuarios td {
+    padding: 13px;
+
+    color: #edf4ff;
+
+    font-size: 11px;
+
+    border-bottom: 1px solid rgba(70, 105, 151, 0.25);
+}
+
+.tabla-usuarios tbody tr {
+    transition: 0.2s ease;
+}
+
+.tabla-usuarios tbody tr:hover {
+    background: rgba(24, 76, 140, 0.15);
+}
+
+
+/* =========================================================
+   USUARIO EN TABLA
+   ========================================================= */
+
+.usuario-tabla {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+}
+
+.mini-avatar {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #06142e;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.usuario-tabla strong {
+    display: block;
+
+    font-size: 11px;
+}
+
+.usuario-tabla small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #8fa5c4;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   ROLES
+   ========================================================= */
+
+.rol {
+    display: inline-block;
+
+    padding: 4px 8px;
+
+    border-radius: 12px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.rol.administrador {
+    background: rgba(150, 70, 195, 0.22);
+
+    color: #cf8cff;
+
+    border: 1px solid rgba(172, 85, 216, 0.45);
+}
+
+.rol.supervisor {
+    background: rgba(0, 169, 239, 0.18);
+
+    color: #4fc7ff;
+}
+
+.rol.guarda {
+    background: rgba(25, 179, 98, 0.18);
+
+    color: #4ee597;
+}
+
+.rol.cliente {
+    background: rgba(232, 171, 32, 0.18);
+
+    color: #f4c45a;
+}
+
+
+/* =========================================================
+   ESTADOS
+   ========================================================= */
+
+.estado {
+    display: inline-block;
+
+    padding: 4px 8px;
+
+    border-radius: 12px;
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.estado.activo {
+    background: rgba(19, 201, 105, 0.17);
+
+    color: #43e28c;
+}
+
+.estado.inactivo {
+    background: rgba(237, 64, 73, 0.17);
+
+    color: #ff767e;
+}
+
+
+/* =========================================================
+   ACCIONES
+   ========================================================= */
+
+.acciones-tabla {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.btn-accion {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid;
+    border-radius: 5px;
+
+    background: transparent;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.btn-accion.editar {
+    border-color: #1688ff;
+
+    color: #47a6ff;
+}
+
+.btn-accion.editar:hover {
+    background: rgba(22, 136, 255, 0.15);
+}
+
+.btn-accion.estado-usuario {
+    border-color: #22bd67;
+
+    color: #45df8a;
+}
+
+.btn-accion.estado-usuario:hover {
+    background: rgba(34, 189, 103, 0.14);
+}
+
+.btn-accion.eliminar {
+    border-color: #ef4d57;
+
+    color: #ff727a;
+}
+
+.btn-accion.eliminar:hover {
+    background: rgba(239, 77, 87, 0.14);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .resumen-usuarios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .barra-acciones-usuarios {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .buscador-usuarios {
+        max-width: none;
+    }
+
+    .resumen-usuarios {
+        grid-template-columns: 1fr;
+    }
+
+}

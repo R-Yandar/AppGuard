@@ -1,0 +1,16 @@
+# Archivos compilados de Java
+*.class
+
+# Configuración de VS Code
+.vscode/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Variables de entorno y credenciales
+.env
+*.env
+
+# Logs
+*.log

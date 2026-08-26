@@ -1,0 +1,667 @@
+/* =========================================
+   MODULOS INTERNOS APPGUARD
+   Basados en los mockups de Figma
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body.pagina-modulo {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+
+    background:
+        linear-gradient(rgba(0, 7, 25, 0.86), rgba(0, 7, 25, 0.86)),
+        url("img/mundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+}
+
+/* ===========================
+   BARRA LATERAL
+   =========================== */
+
+.sidebar-modulo {
+    width: 230px;
+    min-height: 100vh;
+
+    background: rgba(0, 11, 38, 0.97);
+    border-right: 1px solid #52627d;
+
+    padding: 18px 13px;
+
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.marca-modulo {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.logo-modulo {
+    width: 105px;
+}
+
+.marca-modulo p {
+    margin: -5px 0 0;
+    font-size: 11px;
+    color: #ffffff;
+}
+
+.menu-modulo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-modulo a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 10px;
+
+    color: #dfe8f6;
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    transition: .2s;
+}
+
+.menu-modulo a:hover {
+    background: rgba(13, 91, 220, .25);
+}
+
+.menu-modulo a.activo {
+    background: #0d58d3;
+    color: #ffffff;
+}
+
+.menu-modulo i {
+    width: 17px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.menu-secundario {
+    margin-top: auto;
+}
+
+.menu-secundario a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 7px 10px;
+
+    text-decoration: none;
+    color: #dfe8f6;
+
+    font-size: 12px;
+
+    border-radius: 6px;
+}
+
+.menu-secundario a:hover {
+    background: rgba(13, 91, 220, .25);
+}
+
+.estado-modulo {
+    margin-top: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 14px 5px 7px;
+
+    font-size: 10px;
+}
+
+.estado-modulo i {
+    font-size: 30px;
+    color: #078cff;
+
+    transform: translate(4px, -5px);
+}
+
+.punto-verde {
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    margin-left: 3px;
+
+    background: #20d76c;
+    border-radius: 50%;
+}
+
+/* ===========================
+   CONTENIDO
+   =========================== */
+
+.contenido-modulo {
+    flex: 1;
+
+    padding: 30px 42px;
+}
+
+.encabezado-modulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 30px;
+}
+
+.titulo-modulo {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.volver-panel {
+    color: #ffffff;
+
+    font-size: 25px;
+    text-decoration: none;
+
+    margin-top: 2px;
+
+    transition: .2s;
+}
+
+.volver-panel:hover {
+    color: #008cff;
+}
+
+.titulo-modulo h1 {
+    margin: 0 0 5px;
+
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.titulo-modulo p {
+    margin: 0;
+
+    color: #aebed5;
+
+    font-size: 13px;
+}
+
+/* USUARIO */
+
+.usuario-modulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 10px;
+}
+
+.usuario-modulo i {
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.usuario-modulo strong {
+    display: block;
+
+    color: #009dff;
+    font-size: 10px;
+}
+
+.usuario-modulo span {
+    display: block;
+    margin-top: 2px;
+
+    color: #ffffff;
+    font-size:10px;
+}
+
+.estado-usuario {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #ffffff;
+}
+
+.estado-usuario::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #17d66b;
+    border-radius: 50%;
+    display: inline-block;
+}
+/* ===========================
+   TARJETAS DE FUNCIONES
+   =========================== */
+
+.grid-funciones {
+    display: grid;
+    gap: 18px;
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-horario {
+    grid-template-columns: minmax(320px, 600px);
+    justify-content: center;
+}
+
+.tarjeta-funcion {
+    min-height: 175px;
+
+    padding: 24px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+    color: #ffffff;
+
+    background: rgba(3, 18, 49, .93);
+
+    border: 1px solid var(--acento);
+    border-radius: 11px;
+
+    box-shadow: 0 0 6px color-mix(in srgb, var(--acento) 25%, transparent);
+
+    transition: transform .2s, box-shadow .2s;
+}
+
+.tarjeta-funcion:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 0 14px color-mix(in srgb, var(--acento) 35%, transparent);
+}
+
+.icono-funcion {
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--acento);
+
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.tarjeta-funcion h3 {
+    margin: 0 0 8px;
+
+    font-size: 17px;
+}
+
+.tarjeta-funcion p {
+    margin: 0;
+
+    color: #aebed5;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.tarjeta-funcion::after {
+    content: "→";
+
+    position: absolute;
+
+    right: 18px;
+    bottom: 14px;
+
+    color: var(--acento);
+
+    font-size: 26px;
+}
+
+/* COLORES */
+
+.azul {
+    --acento: #1269e8;
+}
+
+.verde {
+    --acento: #22a566;
+}
+
+.rojo {
+    --acento: #d52b38;
+}
+
+.naranja {
+    --acento: #ed8a00;
+}
+
+.amarillo {
+    --acento: #d8c927;
+}
+
+.morado {
+    --acento: #8950aa;
+}
+
+.celeste {
+    --acento: #3785e6;
+}
+
+.turquesa {
+    --acento: #08aeb9;
+}
+
+/* ===========================
+   ESTADO DEL BOTON DE PANICO
+   =========================== */
+
+.estado-panico {
+    margin-top: 22px;
+
+    padding: 19px 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    background: rgba(3, 36, 50, .88);
+
+    border: 1px solid #12a9a3;
+    border-radius: 10px;
+}
+
+.estado-panico i {
+    font-size: 29px;
+    color: #25d28a;
+}
+
+.estado-panico strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.estado-panico p {
+    margin: 0;
+    font-size: 12px;
+    color: #abd8cf;
+}
+
+/* HORARIOS */
+
+.programacion-card {
+    text-align: center;
+    min-height: 270px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.programacion-card::after {
+    display: none;
+}
+
+.btn-programacion {
+    margin-top: 22px;
+
+    padding: 11px 26px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #168d57;
+    color: white;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+
+    .contenido-modulo {
+        padding: 25px 20px;
+    }
+
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado-modulo {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+.icono-supervision {
+    font-size: 40px;
+}
+/* ==================================================
+   LATERAL MODULOS - IGUAL AL PANEL PRINCIPAL
+   ================================================== */
+
+.sidebar-modulo {
+    width: 195px;
+    min-width: 195px;
+    height: 100vh;
+
+    padding: 15px 11px 12px;
+
+    background: #00102f;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.45);
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+
+/* ===== LOGO Y MARCA ===== */
+
+.sidebar-modulo .marca-modulo {
+    width: 100%;
+
+    text-align: center;
+
+    margin: 0 0 22px;
+}
+
+
+/* LOGO COMPLETO APPGUARD */
+
+.sidebar-modulo .logo-modulo {
+    display: block;
+
+    width: 145px;
+    height: auto;
+
+    margin: -10px auto -8px;
+
+    position: relative;
+
+    transform: none;
+}
+
+
+/* CONTROL OPERATIVO INTELIGENTE */
+
+.sidebar-modulo .marca-modulo p {
+    width: 100%;
+
+    margin: 0;
+
+    position: relative;
+    top: -3px;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+
+/* ===== MENÚ ===== */
+
+.sidebar-modulo .menu-modulo {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* TODOS LOS BOTONES */
+
+.sidebar-modulo .menu-modulo a {
+    width: 100%;
+    height: 31px;
+
+    padding: 0 11px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+    border: 1px solid #71809a;
+    border-radius: 5px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+}
+
+
+/* ICONOS */
+
+.sidebar-modulo .menu-modulo a i {
+    width: 15px;
+
+    font-size: 12px;
+
+    text-align: center;
+
+    color: #ffffff;
+}
+
+
+/* INICIO AZUL */
+
+.sidebar-modulo .menu-modulo a:first-child {
+    background: #1263df;
+
+    border-color: #1263df;
+
+    font-weight: 600;
+}
+
+
+/* ===== ESTADO INFERIOR ===== */
+
+.sidebar-modulo .estado-modulo {
+    margin-top: auto;
+
+    width: 100%;
+
+    padding: 0 0 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+}
+
+
+/* ESCUDO */
+
+.sidebar-modulo .estado-modulo > i {
+    width: auto;
+    height: auto;
+
+    position: relative;
+    top: -4px;
+
+    color: #008cff;
+
+    font-size: 39px;
+}
+
+
+/* TEXTO SISTEMA */
+
+.sidebar-modulo .estado-modulo > div {
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    text-align: left;
+}
+
+
+/* PUNTO VERDE */
+
+.sidebar-modulo .punto-verde {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-left: 3px;
+
+    background: #17d66b;
+
+    border-radius: 50%;
+}

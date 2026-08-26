@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activación de cuenta | AppGuard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+<main class="page">
+
+    <section class="activation-card">
+
+        <!-- LOGO -->
+        <img
+            src="img/logo sin fondo.png"
+            alt="Logo AppGuard"
+            class="logo-activacion"
+        >
+
+        <!-- NOMBRE -->
+        <h1 class="appguard-activacion">
+            App<span>Guard</span>
+        </h1>
+
+        <!-- ESLOGAN -->
+        <p class="eslogan-activacion">
+            Seguridad y Control En Sus Manos
+        </p>
+
+        <div class="linea-activacion"></div>
+
+        <!-- TÍTULO -->
+        <h2>Activación de cuenta</h2>
+
+        <!-- INFORMACIÓN -->
+        <p class="texto-activacion">
+            Tu cuenta ha sido creada por el administrador.<br>
+            Completa los siguientes datos para activarla.
+        </p>
+
+        <!-- DOCUMENTO -->
+        <div class="campo-activacion">
+            <div class="icono-campo">
+                <i class="bi bi-person-vcard"></i>
+            </div>
+
+            <input
+                type="text"
+                id="documentoActivacion"
+                placeholder="Ingrese su numero de documento"
+            >
+        </div>
+
+        <!-- CÓDIGO DE ACTIVACIÓN -->
+        <div class="campo-activacion">
+            <div class="icono-campo">
+                <i class="bi bi-123"></i>
+            </div>
+
+            <input
+                type="text"
+                id="codigoActivacion"
+                placeholder="Ingrese el codigo de activacion"
+            >
+        </div>
+
+        <!-- CORREO -->
+        <div class="campo-activacion">
+            <div class="icono-campo">
+                <i class="bi bi-envelope"></i>
+            </div>
+
+            <input
+                type="email"
+                id="correoActivacion"
+                placeholder="Ingrese su correo electronico"
+            >
+        </div>
+
+        <!-- CONTRASEÑA -->
+        <div class="campo-activacion">
+            <div class="icono-campo">
+                <i class="bi bi-lock"></i>
+            </div>
+
+            <input
+                type="password"
+                id="passwordActivacion"
+                placeholder="Crea una contraseña"
+            >
+
+            <button
+                type="button"
+                class="ojo-activacion"
+                onclick="mostrarPassword('passwordActivacion', this)"
+            >
+                <i class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+
+        <!-- CONFIRMAR CONTRASEÑA -->
+        <div class="campo-activacion">
+            <div class="icono-campo">
+                <i class="bi bi-lock"></i>
+            </div>
+
+            <input
+                type="password"
+                id="confirmarPassword"
+                placeholder="Confirmar contraseña"
+            >
+
+            <button
+                type="button"
+                class="ojo-activacion"
+                onclick="mostrarPassword('confirmarPassword', this)"
+            >
+                <i class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+
+        <!-- BOTONES -->
+        <button class="btn-activar" type="button" id="btnActivarCuenta">
+    Activar cuenta
+</button>
+
+        <a href="index.html" class="btn-volver">
+            <i class="bi bi-arrow-left"></i>
+            Volver al inicio
+        </a>
+
+        <!-- FRANJA INFERIOR -->
+        <div class="franja-activacion">
+            <p>Control Operativo Inteligente</p>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+<script>
+function mostrarPassword(id, boton) {
+
+    const campo = document.getElementById(id);
+    const icono = boton.querySelector("i");
+
+    if (campo.type === "password") {
+
+        campo.type = "text";
+
+        icono.classList.remove("bi-eye-slash");
+        icono.classList.add("bi-eye");
+
+    } else {
+
+        campo.type = "password";
+
+        icono.classList.remove("bi-eye");
+        icono.classList.add("bi-eye-slash");
+    }
+}
+</script>
+
+<!-- ACTIVAR CUENTA -->
+<script>
+const btnActivarCuenta = document.getElementById("btnActivarCuenta");
+
+btnActivarCuenta.addEventListener("click", function () {
+
+    const documento = document.getElementById("documentoActivacion").value.trim();
+    const codigo = document.getElementById("codigoActivacion").value.trim();
+    const correo = document.getElementById("correoActivacion").value.trim();
+    const password = document.getElementById("passwordActivacion").value;
+    const confirmarPassword = document.getElementById("confirmarPassword").value;
+
+    // Verificar campos vacíos
+    if (
+        documento === "" ||
+        codigo === "" ||
+        correo === "" ||
+        password === "" ||
+        confirmarPassword === ""
+    ) {
+        alert("Por favor completa todos los campos.");
+        return;
+    }
+
+    // Verificar correo
+    if (!correo.includes("@")) {
+        alert("Por favor ingresa un correo electrónico válido.");
+        return;
+    }
+
+    // Verificar contraseñas
+    if (password !== confirmarPassword) {
+        alert("Las contraseñas no coinciden.");
+        return;
+    }
+
+    // Activación correcta
+    alert("Cuenta activada correctamente.");
+
+    // Regresar al inicio de sesión
+    window.location.href = "index.html";
+});
+
+</script>
+
+</body>
+</html>
