@@ -36,7 +36,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
     String correo = request.getParameter("correo");
     String telefono = request.getParameter("telefono");
     String rol = request.getParameter("rol");
-    String contrasena = request.getParameter("contrasena");
 int idRol = Integer.parseInt(rol);
 
 Usuario usuario = new Usuario();
@@ -46,7 +45,6 @@ usuario.setNombre(nombre);
 usuario.setApellido(apellido);
 usuario.setDocumento(documento);
 usuario.setCorreo(correo);
-usuario.setContrasena(contrasena);
 usuario.setTelefono(telefono);
 usuario.setEstado("Activo");
 

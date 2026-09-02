@@ -15,10 +15,10 @@ public class UsuarioDAO {
     public boolean insertar(Usuario usuario) {
 
         String sql = """
-                INSERT INTO usuarios
-                (id_rol, nombre, apellido, documento, correo, contrasena, telefono, estado)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-                """;
+        INSERT INTO usuarios
+        (id_rol, nombre, apellido, documento, correo, telefono, estado)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        """;
 
         try (
             Connection conexion = ConexionBD.conectar();
@@ -26,13 +26,12 @@ public class UsuarioDAO {
         ) {
 
             sentencia.setInt(1, usuario.getIdRol());
-            sentencia.setString(2, usuario.getNombre());
-            sentencia.setString(3, usuario.getApellido());
-            sentencia.setString(4, usuario.getDocumento());
-            sentencia.setString(5, usuario.getCorreo());
-            sentencia.setString(6, usuario.getContrasena());
-            sentencia.setString(7, usuario.getTelefono());
-            sentencia.setString(8, usuario.getEstado());
+sentencia.setString(2, usuario.getNombre());
+sentencia.setString(3, usuario.getApellido());
+sentencia.setString(4, usuario.getDocumento());
+sentencia.setString(5, usuario.getCorreo());
+sentencia.setString(6, usuario.getTelefono());
+sentencia.setString(7, usuario.getEstado());
 
             return sentencia.executeUpdate() > 0;
 
