@@ -3,7 +3,7 @@
    Conexión con API Java + JDBC + MySQL
    ========================================================= */
 
-const API_URL = "http://localhost:8080/usuarios";
+const API_URL = "http://localhost:8080/AppGuard/usuarios?formato=json";
 
 let usuarios = [];
 
@@ -50,13 +50,9 @@ async function cargarUsuarios() {
         mostrarUsuarios(usuarios);
 
     } catch (error) {
+    console.error(error);
+}
 
-        console.error(error);
-
-        alert(
-            "No fue posible conectar con el servidor de AppGuard."
-        );
-    }
 }
 
 
@@ -211,83 +207,10 @@ cargarUsuarios();
    CREAR NUEVO USUARIO
    ========================================================= */
 
-btnNuevoUsuario.addEventListener("click", async function () {
-
-    const nombre = prompt("Nombre:");
-    if (!nombre) return;
-
-    const apellido = prompt("Apellido:");
-    if (!apellido) return;
-
-    const documento = prompt("Documento:");
-    if (!documento) return;
-
-    const correo = prompt("Correo electrónico:");
-    if (!correo) return;
-
-    const telefono = prompt("Teléfono:");
-    if (!telefono) return;
-
-    const contrasena = prompt("Contraseña:");
-    if (!contrasena) return;
-
-    const rolIngresado = prompt(
-        "Seleccione el rol:\n" +
-        "1 = Administrador\n" +
-        "2 = Supervisor\n" +
-        "3 = Guarda\n" +
-        "4 = Cliente",
-        "3"
-    );
-
-    const idRol = Number(rolIngresado);
-
-    if (![1, 2, 3, 4].includes(idRol)) {
-        alert("El rol seleccionado no es válido.");
-        return;
-    }
-
-    const datos = new URLSearchParams();
-
-    datos.append("idRol", idRol);
-    datos.append("nombre", nombre);
-    datos.append("apellido", apellido);
-    datos.append("documento", documento);
-    datos.append("correo", correo);
-    datos.append("contrasena", contrasena);
-    datos.append("telefono", telefono);
-    datos.append("estado", "Activo");
-
-    try {
-
-        const respuesta = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type":
-                    "application/x-www-form-urlencoded"
-            },
-            body: datos.toString()
-        });
-
-        if (!respuesta.ok) {
-            throw new Error(
-                "No fue posible registrar el usuario."
-            );
-        }
-
-        alert("Usuario registrado correctamente.");
-
-        await cargarUsuarios();
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Ocurrió un error al registrar el usuario."
-        );
-    }
+btnNuevoUsuario.addEventListener("click", function () {
+    window.location.href = "http://localhost:8080/AppGuard/nuevo-usuario.html";
 });
+
 /* =========================================================
    EDITAR USUARIO
    ========================================================= */

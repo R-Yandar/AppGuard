@@ -12,15 +12,55 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/usuarios")
 public class UsuarioServlet extends HttpServlet {
 
-    @Override
+  @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
 
+    response.setHeader("Access-Control-Allow-Origin", "*");
+
     UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+    String formato = request.getParameter("formato");
+
+    if ("json".equalsIgnoreCase(formato)) {
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        var usuarios = usuarioDAO.listar();
+
+        PrintWriter out = response.getWriter();
+
+        out.print("[");
+
+        for (int i = 0; i < usuarios.size(); i++) {
+
+            Usuario usuario = usuarios.get(i);
+
+            out.print("{");
+            out.print("\"idRol\":" + usuario.getIdRol() + ",");
+            out.print("\"nombre\":\"" + usuario.getNombre() + "\",");
+            out.print("\"apellido\":\"" + usuario.getApellido() + "\",");
+            out.print("\"documento\":\"" + usuario.getDocumento() + "\",");
+            out.print("\"correo\":\"" + usuario.getCorreo() + "\",");
+            out.print("\"telefono\":\"" + usuario.getTelefono() + "\",");
+            out.print("\"estado\":\"" + usuario.getEstado() + "\"");
+            out.print("}");
+
+            if (i < usuarios.size() - 1) {
+                out.print(",");
+            }
+        }
+
+out.print("]");
+
+        return;
+    }
 
     request.setAttribute("usuarios", usuarioDAO.listar());
 
-    request.getRequestDispatcher("usuarios.jsp").forward(request, response);
+    request.getRequestDispatcher("usuarios.jsp")
+           .forward(request, response);
 }
 
     @Override
