@@ -3,7 +3,7 @@
    Conexión con API Java + JDBC + MySQL
    ========================================================= */
 
-const API_URL = "http://localhost:8080/AppGuard/usuarios?formato=json";
+const API_URL = "http://localhost:8080/api/usuarios";
 
 let usuarios = [];
 
@@ -208,7 +208,7 @@ cargarUsuarios();
    ========================================================= */
 
 btnNuevoUsuario.addEventListener("click", function () {
-    window.location.href = "http://localhost:8080/AppGuard/nuevo-usuario.html";
+    window.location.href = "webapp/nuevo-usuario.html";
 });
 
 /* =========================================================

@@ -2,6 +2,8 @@ package com.appguard.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +17,10 @@ import com.appguard.repository.UsuarioRepository;
  * Controlador REST encargado de gestionar las operaciones
  * relacionadas con los usuarios de AppGuard.
  */
+@CrossOrigin(origins = {
+    "http://127.0.0.1:5501",
+    "http://localhost:5501"
+})
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {

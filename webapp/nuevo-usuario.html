@@ -14,7 +14,7 @@
     <aside class="sidebar">
 
         <div class="logo-area">
-            <img src="img/logo%20sin%20fondo.png" alt="Logo AppGuard">
+            <img src="../img/logo%20sin%20fondo.png" alt="Logo AppGuard">
             <p>Control Operativo Inteligente</p>
         </div>
 
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <form action="usuarios" method="post">
+            <form id="formNuevoUsuario">
 
                 <div class="campo">
                     <label for="nombre">Nombre</label>
@@ -146,6 +146,49 @@
         </section>
 
     </main>
+
+    <script>
+    const formulario = document.getElementById("formNuevoUsuario");
+
+    formulario.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const usuario = {
+            nombre: document.getElementById("nombre").value.trim(),
+            apellido: document.getElementById("apellido").value.trim(),
+            documento: document.getElementById("documento").value.trim(),
+            correo: document.getElementById("correo").value.trim(),
+            telefono: document.getElementById("telefono").value.trim(),
+            idRol: Number(document.getElementById("rol").value)
+        };
+
+        try {
+            const respuesta = await fetch(
+                "http://localhost:8080/api/usuarios",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(usuario)
+                }
+            );
+
+            if (!respuesta.ok) {
+                throw new Error("No fue posible registrar el usuario.");
+            }
+
+            alert("Usuario registrado correctamente.");
+
+            window.location.href =
+                "http://127.0.0.1:5501/gestionar-usuarios.html";
+
+        } catch (error) {
+            console.error(error);
+            alert("Error al registrar el usuario.");
+        }
+    });
+</script>
 
 </body>
 </html>
