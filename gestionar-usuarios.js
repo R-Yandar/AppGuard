@@ -274,27 +274,26 @@ async function editarUsuario(idUsuario) {
         return;
     }
 
-    const datos = new URLSearchParams();
+    const datos = {
+    idUsuario: usuario.idUsuario,
+    idRol: idRol,
+    nombre: nombre,
+    apellido: apellido,
+    documento: documento,
+    correo: correo,
+    telefono: telefono,
+    estado: usuario.estado
+};
 
-    datos.append("idUsuario", usuario.idUsuario);
-    datos.append("idRol", idRol);
-    datos.append("nombre", nombre);
-    datos.append("apellido", apellido);
-    datos.append("documento", documento);
-    datos.append("correo", correo);
-    datos.append("telefono", telefono);
-    datos.append("estado", usuario.estado);
+try {
 
-    try {
-
-        const respuesta = await fetch(API_URL, {
-            method: "PUT",
-            headers: {
-                "Content-Type":
-                    "application/x-www-form-urlencoded"
-            },
-            body: datos.toString()
-        });
+    const respuesta = await fetch(API_URL, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(datos)
+    });
 
         if (!respuesta.ok) {
             throw new Error(
@@ -334,27 +333,26 @@ async function cambiarEstado(idUsuario) {
             ? "Inactivo"
             : "Activo";
 
-    const datos = new URLSearchParams();
+    const datos = {
+    idUsuario: usuario.idUsuario,
+    idRol: usuario.idRol,
+    nombre: usuario.nombre,
+    apellido: usuario.apellido,
+    documento: usuario.documento,
+    correo: usuario.correo,
+    telefono: usuario.telefono,
+    estado: nuevoEstado
+};
 
-    datos.append("idUsuario", usuario.idUsuario);
-    datos.append("idRol", usuario.idRol);
-    datos.append("nombre", usuario.nombre);
-    datos.append("apellido", usuario.apellido);
-    datos.append("documento", usuario.documento);
-    datos.append("correo", usuario.correo);
-    datos.append("telefono", usuario.telefono);
-    datos.append("estado", nuevoEstado);
+try {
 
-    try {
-
-        const respuesta = await fetch(API_URL, {
-            method: "PUT",
-            headers: {
-                "Content-Type":
-                    "application/x-www-form-urlencoded"
-            },
-            body: datos.toString()
-        });
+    const respuesta = await fetch(API_URL, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(datos)
+    });
 
         if (!respuesta.ok) {
             throw new Error(
@@ -393,19 +391,11 @@ async function eliminarUsuario(idUsuario) {
 
     if (!confirmar) return;
 
-    const datos = new URLSearchParams();
-
-    datos.append("idUsuario", idUsuario);
-
     try {
 
-        const respuesta = await fetch(API_URL, {
+        const respuesta = await fetch(`${API_URL}/${idUsuario}`, {
             method: "DELETE",
-            headers: {
-                "Content-Type":
-                    "application/x-www-form-urlencoded"
-            },
-            body: datos.toString()
+            
         });
 
         if (!respuesta.ok) {

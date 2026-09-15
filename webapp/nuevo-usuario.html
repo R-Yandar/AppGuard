@@ -102,9 +102,14 @@
                 </div>
 
                 <div class="campo">
-                    <label for="documento">Documento</label>
                     <input type="text" id="documento" name="documento"
-                           placeholder="Ingrese el documento" required>
+       placeholder="Ingrese el documento"
+       pattern="[0-9]{6,10}"
+       maxlength="10"
+       inputmode="numeric"
+       title="El documento debe contener entre 6 y 10 números"
+       required>
+
                 </div>
 
                 <div class="campo">
@@ -114,9 +119,12 @@
                 </div>
 
                 <div class="campo">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" id="telefono" name="telefono"
-                           placeholder="Ingrese el teléfono">
+                   <input type="text" id="telefono" name="telefono"
+       placeholder="Ingrese el teléfono"
+       pattern="[0-9]{7,10}"
+       maxlength="10"
+       inputmode="numeric"
+       title="El teléfono debe contener entre 7 y 10 números">
                 </div>
 
                 <div class="campo">

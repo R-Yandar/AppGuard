@@ -3,9 +3,11 @@ package com.appguard.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
-
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,4 +56,35 @@ public class UsuarioController {
 
         return usuarioRepository.save(usuario);
     }
+    @PutMapping
+public Usuario actualizarUsuario(@RequestBody Usuario usuario) {
+
+    if (usuario.getIdUsuario() == null) {
+        throw new RuntimeException("El ID del usuario es obligatorio.");
+    }
+
+    Usuario existente = usuarioRepository.findById(usuario.getIdUsuario())
+            .orElseThrow(() -> new RuntimeException("Usuario no encontrado."));
+
+    existente.setNombre(usuario.getNombre());
+    existente.setApellido(usuario.getApellido());
+    existente.setDocumento(usuario.getDocumento());
+    existente.setCorreo(usuario.getCorreo());
+    existente.setTelefono(usuario.getTelefono());
+    existente.setIdRol(usuario.getIdRol());
+    existente.setEstado(usuario.getEstado());
+
+    return usuarioRepository.save(existente);
+}
+
+@DeleteMapping("/{id}")
+public void eliminarUsuario(@PathVariable Integer id) {
+
+    if (!usuarioRepository.existsById(id)) {
+        throw new RuntimeException("Usuario no encontrado.");
+    }
+
+    usuarioRepository.deleteById(id);
+}
+
 }
