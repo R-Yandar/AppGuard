@@ -1,0 +1,34 @@
+// Menú lateral del módulo Administrador
+function MenuLateral() {
+  return (
+    <aside className="sidebar-modulo">
+      <div className="marca-modulo">
+  <img
+    src="/img/logo sin fondo.png"
+    alt="Logo AppGuard"
+    className="logo-modulo"
+  />
+
+  <p>Control Operativo Inteligente</p>
+</div>
+
+      <nav className="menu-modulo">
+        <a href="#">Inicio</a>
+        <a href="#">Notificaciones</a>
+        <a href="#">Configuraciones</a>
+        <a href="#">Ayuda</a>
+        <a href="#">Cerrar sesión</a>
+      </nav>
+
+      <div className="estado-modulo">
+        <div>
+          Sistema activo <span className="punto-verde"></span>
+          <br />
+          y Protegido
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+export default MenuLateral;

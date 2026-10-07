@@ -1,0 +1,1532 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("img/mundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.login-card {
+    width: 430px;
+    min-height: 700px;
+
+    background: rgba(2, 16, 48, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 34px;
+
+    box-shadow: 0 0 22px rgba(0, 119, 255, 0.35);
+
+    padding: 82px 32px 85px;
+
+    text-align: center;
+
+    overflow: visible;
+    position: relative;
+}
+
+.logo {
+    width: 315px;
+    height: auto;
+
+    position: absolute;
+    top: -95px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    margin: 0;
+    z-index: 3;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+h1 span {
+  color: #1688ff;
+}
+
+.subtitle {
+    font-size: 19px;
+    color: #e5e5e5;
+    margin-top: 10px;
+
+    position: relative;
+    top: 12px;
+}
+
+.line {
+  width: 180px;
+  height: 1px;
+  background: #1d75ff;
+  margin: 28px auto 30px;
+  opacity: 0.7;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: px;
+}
+
+.mini-line {
+  width: 55px;
+  height: 3px;
+  background: #00e5ff;
+  border-radius: 10px;
+  margin: 0 auto 30px;
+}
+
+.login-form {
+    position: relative;
+    top: 18px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  height: 62px;
+}
+
+.icon {
+  width: 62px;
+  height: 62px;
+  background: #06143a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 21px;
+  border-right: 1px solid #cfcfcf;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 18px;
+  font-size: 18px;
+  color: #0b1230;
+}
+
+.eye {
+  color: #10183c;
+  font-size: 20px;
+  padding-right: 18px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0 28px;
+  font-size: 15px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.options input {
+  width: 20px;
+  height: 20px;
+}
+
+.options a {
+  color: #00dfff;
+  text-decoration: none;
+}
+
+.btn-primary,
+.btn-secondary {
+  width: 100%;
+  height: 58px;
+  border-radius: 12px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0577ff, #0045d9);
+  border: 1px solid #43a3ff;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid #91b6ff;
+}
+
+.bottom-wave {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 58px;
+
+    background: #0e57dc;
+
+    border-radius: 0 0 33px 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+
+    z-index: 2;
+}
+.bottom-wave::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -18px;
+
+    width: 100%;
+    height: 30px;
+
+    background: #020f2e;
+
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+
+    z-index: 1;
+}
+
+.bottom-wave::before {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    top: -15px;
+
+    width: 100%;
+    height: 30px;
+
+    background: #020f2e;
+
+    border-radius: 0 0 80% 80% / 0 0 100% 100%;
+
+    z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 100%;
+    min-height: auto;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* AJUSTE DEL LOGIN PARA PANTALLAS DE PORTÁTIL */
+
+@media (max-height: 850px) {
+
+    .login-card {
+        transform: scale(0.76);
+        transform-origin: center center;
+    }
+
+}
+
+/* ==================================================
+   ACTIVACION DE CUENTA APPGUARD
+   BASADA EN DISEÑO FIGMA
+   ================================================== */
+
+.activation-card {
+    width: 430px;
+    min-height: 700px;
+
+    background: rgba(2, 16, 48, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 34px;
+
+    box-shadow: 0 0 22px rgba(0, 119, 255, 0.35);
+
+    position: relative;
+
+    padding: 72px 32px 80px;
+
+    text-align: center;
+
+    overflow: visible;
+}
+
+
+/* =========================
+   LOGO
+   ========================= */
+
+.logo-activacion {
+    position: absolute;
+
+    width: 340px;
+    height: auto;
+
+    top: -90px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    clip-path: inset(0 0 36% 0);
+
+    z-index: 5;
+}
+
+
+/* =========================
+   APPGUARD
+   ========================= */
+
+.appguard-activacion {
+    margin: 0;
+
+    font-size: 38px;
+    font-weight: 800;
+
+    line-height: 1;
+
+    color: #ffffff;
+}
+
+.appguard-activacion span {
+    color: #1688ff;
+}
+
+
+/* =========================
+   ESLOGAN
+   ========================= */
+
+.eslogan-activacion {
+    margin: 5px 0 0;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* =========================
+   LINEA AZUL
+   ========================= */
+
+.linea-activacion {
+    width: 180px;
+    height: 2px;
+
+    background: #1d75ff;
+
+    margin: 8px auto 25px;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   TITULO
+   ========================= */
+
+.activation-card h2 {
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   TEXTO INFORMATIVO
+   ========================= */
+
+.texto-activacion {
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.45;
+    text-align: center;
+}
+
+/* =========================
+   CAMPOS
+   ========================= */
+
+.campo-activacion {
+    width: 100%;
+    height: 43px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 6px;
+
+    background: transparent;
+
+    overflow: hidden;
+}
+
+
+/* ICONO IZQUIERDO */
+
+.icono-campo {
+    width: 45px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+
+/* INPUT */
+
+.campo-activacion input {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    padding: 0 42px 0 12px;
+}
+
+
+/* PLACEHOLDER */
+
+.campo-activacion input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* =========================
+   OJO CONTRASEÑA
+   ========================= */
+
+.ojo-activacion {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   BOTON ACTIVAR
+   ========================= */
+
+.btn-activar {
+    width: 100%;
+    height: 44px;
+
+    margin-top: 7px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #0d5fe5;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.btn-activar:hover {
+    background: #1674ff;
+
+    box-shadow: 0 0 12px rgba(22, 116, 255, 0.5);
+}
+
+
+/* =========================
+   VOLVER AL INICIO
+   ========================= */
+
+.btn-volver {
+    width: 100%;
+    height: 42px;
+
+    margin-top: 8px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: 0.2s ease;
+}
+
+.btn-volver:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================
+   FRANJA INFERIOR
+   ========================= */
+
+.franja-activacion {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 58px;
+
+    background: #0e57dc;
+
+    border-radius: 0 0 33px 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: visible;
+
+    z-index: 2;
+}
+
+
+/* CURVA OSCURA SOBRE LA FRANJA */
+
+.franja-activacion::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -14px;
+
+    width: 100%;
+    height: 28px;
+
+    background: #020f2e;
+
+    border-radius: 0 0 80% 80% / 0 0 100% 100%;
+
+    z-index: 1;
+}
+
+
+/* TEXTO DE LA FRANJA */
+
+.franja-activacion p {
+    position: relative;
+
+    margin: 10px 0 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .activation-card {
+        width: 92%;
+        min-height: 680px;
+
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .logo-activacion {
+        width: 135px;
+    }
+
+    .appguard-activacion {
+        font-size: 34px;
+    }
+
+    .activation-card h2 {
+        font-size: 25px;
+    }
+}
+
+.appguard-activacion,
+.eslogan-activacion,
+.linea-activacion {
+    position: relative;
+    top: -16px;
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+   ========================================= */
+
+.contenido-panel {
+    width: 780px;
+    height: 650px;
+
+    padding: 28px 22px;
+
+    box-sizing: border-box;
+
+    background: rgba(0, 11, 37, 0.94);
+
+    border-top: 1px solid #8290a8;
+    border-right: 1px solid #8290a8;
+    border-bottom: 1px solid #8290a8;
+
+    border-radius: 0 8px 8px 0;
+}
+
+
+/* ENCABEZADO */
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 22px;
+}
+
+.panel-header h1 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.panel-header h1::after {
+    content: ", Brayan Rodriguez";
+    color: #009dff;
+}
+
+.panel-header p {
+    margin: 5px 0 0;
+
+    color: #ffffff;
+
+    font-size: 12px;
+}
+
+
+/* USUARIO */
+
+.usuario-panel {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0;
+
+    background: transparent;
+    border: none;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #06142e;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.usuario-panel strong {
+    display: block;
+
+    color: #00aaff;
+
+    font-size: 10px;
+}
+
+.usuario-panel span {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #ffffff;
+
+    font-size: 9px;
+}
+
+
+/* =========================================
+   CUADRICULA 4 X 2
+   ========================================= */
+
+.grid-modulos {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+/* TARJETAS */
+
+.tarjeta-modulo {
+    min-width: 0;
+    height: 245px;
+
+    padding: 15px 11px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    background: rgba(2, 18, 48, 0.92);
+
+    border: 1px solid #53627b;
+    border-radius: 6px;
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.tarjeta-modulo:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 0 12px rgba(0, 133, 255, 0.30);
+}
+
+
+/* ICONOS TEMPORALES */
+
+.icono-modulo {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.icono-modulo.azul {
+    background: #145fd7;
+}
+
+.icono-modulo.verde {
+    background: #259d61;
+}
+
+.icono-modulo.rojo {
+    background: #b72424;
+}
+
+.icono-modulo.naranja {
+    background: #ef8a00;
+}
+
+.icono-modulo.morado {
+    background: #8a4c9d;
+}
+
+
+/* TEXTOS DE LAS TARJETAS */
+
+.tarjeta-modulo > div:last-child {
+    width: 100%;
+}
+
+.tarjeta-modulo h3 {
+    margin: 0 0 12px;
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.tarjeta-modulo p {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    line-height: 1.45;
+
+    text-align: left;
+}
+
+
+/* FLECHA VISUAL DE LAS TARJETAS */
+
+.tarjeta-modulo::after {
+    content: "→";
+
+    position: absolute;
+
+    right: 10px;
+    bottom: 9px;
+
+    color: #1582ff;
+
+    font-size: 24px;
+}
+
+.tarjeta-modulo:nth-child(2)::after {
+    color: #24bd68;
+}
+
+.tarjeta-modulo:nth-child(3)::after {
+    color: #f02b2b;
+}
+
+.tarjeta-modulo:nth-child(4)::after {
+    color: #e5dd21;
+}
+
+.tarjeta-modulo:nth-child(5)::after {
+    color: #ad59a7;
+}
+
+.tarjeta-modulo:nth-child(6)::after {
+    color: #6097e8;
+}
+
+.tarjeta-modulo:nth-child(7)::after {
+    color: #2ed45e;
+}
+
+.tarjeta-modulo:nth-child(8)::after {
+    color: #ff9200;
+}
+
+/* AJUSTE DEL PANEL AL 100% DE ZOOM */
+
+@media (max-height: 850px) and (max-width: 1500px) {
+
+    .pagina-panel .sidebar,
+    .pagina-panel .contenido-panel {
+        transform: scale(0.90);
+    }
+
+    .pagina-panel .sidebar {
+        transform-origin: center right;
+    }
+
+    .pagina-panel .contenido-panel {
+        transform-origin: center left;
+    }
+}
+
+/* =========================================
+   ADAPTACION
+   ========================================= */
+
+@media (max-width: 1050px) {
+
+    .pagina-panel {
+        align-items: flex-start;
+        overflow-x: auto;
+    }
+
+    .sidebar {
+        flex-shrink: 0;
+    }
+
+    .contenido-panel {
+        flex-shrink: 0;
+    }
+}
+/* Borde por color de módulo */
+
+.tarjeta-modulo:nth-child(1) {
+    border-color: rgba(20, 95, 215, 0.85);
+    box-shadow: 0 0 5px rgba(20, 95, 215, 0.15);
+}
+/* SUPERVISIÓN - VERDE */
+.tarjeta-modulo:nth-child(2) {
+    border-color: rgba(37, 157, 97, 0.85);
+    box-shadow: 0 0 5px rgba(37, 157, 97, 0.15);
+}
+
+/* BOTÓN DE PÁNICO - ROJO */
+.tarjeta-modulo:nth-child(3) {
+    border-color: rgba(183, 36, 36, 0.85);
+    box-shadow: 0 0 5px rgba(183, 36, 36, 0.15);
+}
+
+/* NOVEDADES - AMARILLO */
+.tarjeta-modulo:nth-child(4) {
+    border-color: rgba(229, 221, 33, 0.85);
+    box-shadow: 0 0 5px rgba(229, 221, 33, 0.15);
+}
+
+/* REPORTES - MORADO */
+.tarjeta-modulo:nth-child(5) {
+    border-color: rgba(138, 76, 157, 0.85);
+    box-shadow: 0 0 5px rgba(138, 76, 157, 0.15);
+}
+
+/* ADMINISTRADOR - AZUL CLARO */
+.tarjeta-modulo:nth-child(6) {
+    border-color: rgba(96, 151, 232, 0.85);
+    box-shadow: 0 0 5px rgba(96, 151, 232, 0.15);
+}
+
+/* HORARIOS - VERDE */
+.tarjeta-modulo:nth-child(7) {
+    border-color: rgba(46, 212, 94, 0.85);
+    box-shadow: 0 0 5px rgba(46, 212, 94, 0.15);
+}
+
+/* CLIENTES - NARANJA */
+.tarjeta-modulo:nth-child(8) {
+    border-color: rgba(255, 146, 0, 0.85);
+    box-shadow: 0 0 5px rgba(255, 146, 0, 0.15);
+}
+.icono-supervision-panel {
+    font-size: 40px;
+}
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: none;
+    background: transparent;
+    color: #07152f;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input[type="password"] {
+    padding-right: 45px;
+}
+/* ==================================================
+   PANEL PRINCIPAL APPGUARD - AJUSTE DEFINITIVO
+   ================================================== */
+
+.pagina-panel {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+
+    background:
+        linear-gradient(rgba(0, 8, 28, 0.82), rgba(0, 8, 28, 0.82)),
+        url("img/mundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+
+/* CONTENEDOR LATERAL */
+
+.pagina-panel .sidebar {
+    width: 215px;
+    height: 650px;
+
+    flex-shrink: 0;
+
+    background: rgba(0, 13, 43, 0.97);
+
+    border: 1px solid #8290a8;
+    border-right: none;
+
+    border-radius: 8px 0 0 8px;
+
+    padding: 18px 12px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* LOGO PANEL */
+
+.pagina-panel .sidebar-brand {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.pagina-panel .logo-sidebar {
+    position: static;
+
+    display: block;
+
+    width: 210px;
+    height: auto;
+
+    margin: 0 auto;
+
+    transform: none;
+
+    clip-path: none;
+    position: relative;
+top: -12px;
+
+}
+
+.pagina-panel .sidebar-brand h2 {
+    display: none;
+}
+
+.pagina-panel .sidebar-brand p {
+    position: relative;
+    top: -28px;
+
+    width: 108%;
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 13px;
+    color: #ffffff;
+}
+
+
+/* MENÚ */
+
+.pagina-panel .menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.pagina-panel .menu-item {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 11px;
+
+    border: 1px solid #71809a;
+    border-radius: 5px;
+
+    background: rgba(4, 20, 52, 0.75);
+
+    color: #ffffff;
+
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.pagina-panel .menu-item.activo {
+    background: #105bd6;
+    border-color: #105bd6;
+
+    font-weight: bold;
+}
+
+
+/* ESTADO DEL SISTEMA */
+
+.pagina-panel .sidebar-footer {
+    margin-top: auto;
+}
+
+.pagina-panel .estado-sistema {
+    margin-top: auto;
+
+    padding: 15px 4px 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #ffffff;
+}
+
+.pagina-panel .icono-estado {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #078cff;
+
+    font-size: 45px;
+
+    transform: translate(10px, -20px);
+}
+
+.pagina-panel .texto-estado {
+    font-size: 14px;
+    line-height: 1.35;
+
+    text-align: left;
+}
+
+.pagina-panel .punto-activo {
+    display: inline-block;
+
+    width: 8px;
+    height: 8px;
+
+    margin-left: 4px;
+
+    background: #17d66b;
+
+    border-radius: 50%;
+}
+
+
+/* ==================================================
+   CONTENIDO PRINCIPAL
+   ================================================== */
+
+.pagina-panel .contenido-panel {
+    width: 780px;
+    height: 650px;
+
+    flex-shrink: 0;
+
+    padding: 28px 22px;
+
+    background: rgba(0, 11, 37, 0.94);
+
+    border: 1px solid #8290a8;
+
+    border-radius: 0 8px 8px 0;
+}
+
+
+/* ENCABEZADO */
+
+.pagina-panel .panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.pagina-panel .panel-header h1 {
+    margin: 0;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    color: #ffffff;
+}
+
+.pagina-panel .panel-header h1::after {
+    content: ", Brayan Rodriguez";
+
+    color: #009dff;
+}
+
+.pagina-panel .panel-header p {
+    margin: 5px 0 0;
+
+    font-size: 15px;
+
+    color: #ffffff;
+}
+
+
+/* USUARIO */
+
+.pagina-panel .usuario-panel {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0;
+
+    background: transparent;
+    border: none;
+}
+
+.pagina-panel .avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: #ffffff;
+    color: #06142e;
+
+    font-size: 16px !important;
+    font-weight: bold;
+
+    flex-shrink: 0;
+}
+
+.pagina-panel .usuario-panel strong {
+    display: block;
+
+    color: #00aaff;
+
+    font-size: 13px;
+}
+
+.pagina-panel .estado-panel {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    margin-top: 2px;
+
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.pagina-panel .estado-panel::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    background: #17d66b;
+    border-radius: 50%;
+}
+
+
+/* ==================================================
+   MÓDULOS 4 X 2
+   ================================================== */
+
+.pagina-panel .grid-modulos {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+.pagina-panel .tarjeta-modulo {
+    position: relative;
+
+    height: 245px;
+    min-width: 0;
+
+    padding: 15px 11px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: rgba(2, 18, 48, 0.94);
+
+    border-radius: 6px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    box-sizing: border-box;
+}
+
+.pagina-panel .icono-modulo {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 20px;
+}
+
+.pagina-panel .tarjeta-modulo h3 {
+    margin: 0 0 12px;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 17px;
+}
+
+.pagina-panel .tarjeta-modulo p {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 11px;
+    line-height: 1.45;
+
+    text-align: left;
+}
+
+
+/* COLORES DE CÍRCULOS */
+
+.pagina-panel .icono-modulo.azul {
+    background: #145fd7;
+}
+
+.pagina-panel .icono-modulo.verde {
+    background: #259d61;
+}
+
+.pagina-panel .icono-modulo.rojo {
+    background: #b72424;
+}
+
+.pagina-panel .icono-modulo.naranja {
+    background: #ef8a00;
+}
+
+.pagina-panel .icono-modulo.morado {
+    background: #8a4c9d;
+}
+
+
+/* BORDES POR MÓDULO */
+
+.pagina-panel .tarjeta-modulo:nth-child(1) {
+    border: 1px solid #145fd7;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(2) {
+    border: 1px solid #259d61;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(3) {
+    border: 1px solid #b72424;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(4) {
+    border: 1px solid #e5dd21;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(5) {
+    border: 1px solid #8a4c9d;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(6) {
+    border: 1px solid #6097e8;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(7) {
+    border: 1px solid #2ed45e;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(8) {
+    border: 1px solid #ff9200;
+}
+
+
+/* FLECHAS */
+
+.pagina-panel .tarjeta-modulo::after {
+    content: "→";
+
+    position: absolute;
+
+    right: 10px;
+    bottom: 9px;
+
+    font-size: 24px;
+
+    color: #1582ff;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(2)::after {
+    color: #24bd68;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(3)::after {
+    color: #f02b2b;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(4)::after {
+    color: #e5dd21;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(5)::after {
+    color: #ad59a7;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(6)::after {
+    color: #6097e8;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(7)::after {
+    color: #2ed45e;
+}
+
+.pagina-panel .tarjeta-modulo:nth-child(8)::after {
+    color: #ff9200;
+}
+
+
+/* ICONO SUPERVISIÓN */
+
+.pagina-panel .icono-supervision-panel {
+    font-size: 28px;
+}

@@ -1,0 +1,204 @@
+/* Estructura general de AppGuard */
+.pagina-modulo {
+  min-height: 100vh;
+  display: flex;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(rgba(0, 7, 25, 0.86), rgba(0, 7, 25, 0.86)),
+    url("/img/mundo.png");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Menú lateral */
+.sidebar-modulo {
+  width: 195px;
+  min-width: 195px;
+  min-height: 100vh;
+  padding: 15px 11px 12px;
+  background: #00102f;
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenido principal */
+.contenido-modulo {
+  flex: 1;
+  padding: 30px 42px;
+}
+
+/* Marca del menú */
+.marca-modulo {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.logo-modulo {
+  display: block;
+
+  width: 145px;
+  height: auto;
+
+  margin: -10px auto -8px;
+}
+
+.marca-modulo p {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Opciones del menú */
+.menu-modulo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.menu-modulo a {
+  height: 31px;
+  padding: 0 11px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #71809a;
+  border-radius: 5px;
+
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.menu-modulo a:first-child {
+  background: #1263df;
+  border-color: #1263df;
+  font-weight: 600;
+}
+
+/* Estado del sistema */
+.estado-modulo {
+  margin-top: auto;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.punto-verde {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-left: 3px;
+  background: #17d66b;
+  border-radius: 50%;
+}
+
+/* ==================================================
+   ENCABEZADO DEL MÓDULO
+   ================================================== */
+
+.encabezado-modulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 30px;
+}
+
+/* Título y flecha */
+.titulo-modulo {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.volver-panel {
+  margin-top: 2px;
+
+  color: #ffffff;
+  font-size: 25px;
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.volver-panel:hover {
+  color: #008cff;
+}
+
+.titulo-modulo h1 {
+  margin: 0 0 5px;
+
+  color: #ffffff;
+
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.titulo-modulo p {
+  margin: 0;
+
+  color: #aebed5;
+
+  font-size: 13px;
+}
+
+
+/* Usuario ubicado en la parte superior derecha */
+
+.usuario-modulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 10px;
+}
+
+.usuario-modulo > i {
+  font-size: 50px;
+  color: #ffffff;
+}
+
+.usuario-modulo strong {
+  display: block;
+
+  color: #009dff;
+
+  font-size: 10px;
+}
+
+.usuario-modulo span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+}
+
+.estado-usuario {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 5px;
+}
+
+.estado-usuario::after {
+  content: "";
+
+  display: inline-block;
+
+  width: 6px;
+  height: 6px;
+
+  background: #17d66b;
+  border-radius: 50%;
+
+}  

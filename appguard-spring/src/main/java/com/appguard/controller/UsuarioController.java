@@ -20,8 +20,8 @@ import com.appguard.repository.UsuarioRepository;
  * relacionadas con los usuarios de AppGuard.
  */
 @CrossOrigin(origins = {
-    "http://127.0.0.1:5501",
-    "http://localhost:5501"
+    "http://localhost:5173",
+    "http://127.0.0.1:5173"
 })
 @RestController
 @RequestMapping("/api/usuarios")
