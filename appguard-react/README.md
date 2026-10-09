@@ -73,3 +73,14 @@ Las solicitudes HTTP se gestionan desde el archivo:
 Los componentes no contienen directamente las URL de la API, permitiendo
 una mejor organización y separación de responsabilidades entre la interfaz
 de usuario y la capa de servicios.
+
+## Ejecución del proyecto
+
+### Front-end React
+
+1. Abrir una terminal en la carpeta `appguard-react`.
+
+2. Instalar las dependencias:
+
+```bash
+npm install
