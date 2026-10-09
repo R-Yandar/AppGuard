@@ -1,4 +1,21 @@
-// Componente que representa cada usuario de la tabla
+/**
+ * UsuarioItem
+ *
+ * Representa cada usuario dentro de la tabla de Gestión de Usuarios
+ * y permite ejecutar acciones sobre su registro.
+ *
+ * Funcionalidad/HU:
+ * - Modificar usuarios.
+ * - Cambiar el estado de un usuario.
+ * - Eliminar usuarios.
+ *
+ * Props:
+ * - usuario: objeto con los datos del usuario mostrado en la fila.
+ * - onEditar: función que solicita editar el usuario.
+ * - onCambiarEstado: función que solicita activar o inactivar el usuario.
+ * - onEliminar: función que solicita eliminar el usuario.
+ */
+
 function UsuarioItem({
   usuario,
   onEditar,
@@ -28,18 +45,19 @@ function UsuarioItem({
           </div>
 
           <div>
-            <strong>
-              {usuario.nombre} {usuario.apellido}
-            </strong>
+  <strong>
+    {usuario.nombre} {usuario.apellido}
+  </strong>
+</div>
 
-            <small>{usuario.telefono}</small>
-          </div>
         </div>
       </td>
 
       <td>{usuario.documento}</td>
 
       <td>{usuario.correo}</td>
+
+      <td>{usuario.telefono || "Sin registrar"}</td>
 
       <td>
         <span className={`rol ${rol.toLowerCase()}`}>

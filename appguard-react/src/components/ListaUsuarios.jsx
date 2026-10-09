@@ -1,6 +1,24 @@
 import UsuarioItem from "./UsuarioItem";
 
-// Lista de usuarios registrados en AppGuard
+/**
+ * ListaUsuarios
+ *
+ * Muestra en una tabla los usuarios registrados en AppGuard
+ * y delega las acciones de cada registro al componente UsuarioItem.
+ *
+ * Funcionalidad/HU:
+ * - Consultar usuarios registrados.
+ * - Modificar usuarios.
+ * - Cambiar el estado de un usuario.
+ * - Eliminar usuarios.
+ *
+ * Props:
+ * - usuarios: arreglo con los usuarios que se mostrarán en la tabla.
+ * - onEditar: función que solicita editar un usuario.
+ * - onCambiarEstado: función que solicita activar o inactivar un usuario.
+ * - onEliminar: función que solicita eliminar un usuario.
+ */
+
 function ListaUsuarios({
   usuarios,
   onEditar,
@@ -16,6 +34,7 @@ function ListaUsuarios({
             <th>Usuario</th>
             <th>Documento</th>
             <th>Correo</th>
+            <th>Teléfono</th>
             <th>Rol</th>
             <th>Estado</th>
             <th>Acciones</th>

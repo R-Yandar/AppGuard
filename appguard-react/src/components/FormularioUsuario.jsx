@@ -1,6 +1,27 @@
 import { useEffect, useState } from "react";
 
-// Componente para registrar y editar usuarios
+import {
+  crearUsuario,
+  actualizarUsuario,
+} from "../services/usuarioService";
+
+/**
+ * FormularioUsuario
+ *
+ * Permite registrar nuevos usuarios y editar usuarios existentes
+ * dentro del módulo Gestión de Usuarios de AppGuard.
+ *
+ * Funcionalidad/HU:
+ * - Registrar usuarios.
+ * - Modificar usuarios.
+ *
+ * Props:
+ * - usuario: contiene los datos del usuario cuando se está editando.
+ * - onGuardado: función que informa al componente padre que el registro
+ *   o la actualización terminó correctamente.
+ * - onCancelar: función que cierra el formulario sin guardar cambios.
+ */
+
 function FormularioUsuario({
   usuario,
   onGuardado,
@@ -41,14 +62,25 @@ function FormularioUsuario({
   }, [usuario]);
 
   // Actualizar los campos del formulario
-  function manejarCambio(evento) {
-    const { name, value } = evento.target;
+ function manejarCambio(evento) {
+  const { name, value } = evento.target;
 
-    setFormulario((datosAnteriores) => ({
-      ...datosAnteriores,
-      [name]: value,
-    }));
+  if (name === "documento" || name === "telefono") {
+    const soloNumeros = value.replace(/\D/g, "");
+
+    setFormulario({
+      ...formulario,
+      [name]: soloNumeros,
+    });
+
+    return;
   }
+
+  setFormulario({
+    ...formulario,
+    [name]: value,
+  });
+}
 
   // Registrar o editar usuario
   async function manejarEnvio(evento) {
@@ -71,24 +103,11 @@ function FormularioUsuario({
         datos.idUsuario = usuario.idUsuario;
       }
 
-      const respuesta = await fetch(
-        "http://localhost:8080/api/usuarios",
-        {
-          method: esEdicion ? "PUT" : "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(datos),
-        }
-      );
-
-      if (!respuesta.ok) {
-        throw new Error(
-          esEdicion
-            ? "No fue posible actualizar el usuario."
-            : "No fue posible registrar el usuario."
-        );
-      }
+      if (esEdicion) {
+  await actualizarUsuario(datos);
+} else {
+  await crearUsuario(datos);
+}
 
       alert(
         esEdicion
@@ -133,13 +152,18 @@ function FormularioUsuario({
       />
 
       <input
-        type="text"
-        name="documento"
-        placeholder="Documento"
-        value={formulario.documento}
-        onChange={manejarCambio}
-        required
-      />
+  type="text"
+  name="documento"
+  placeholder="Documento"
+  value={formulario.documento}
+  onChange={manejarCambio}
+  inputMode="numeric"
+  pattern="[0-9]{10}"
+  minLength="10"
+maxLength="10"
+  title="El documento solo debe contener 10 números."
+  required
+/>
 
       <input
         type="email"
@@ -151,13 +175,18 @@ function FormularioUsuario({
       />
 
       <input
-        type="tel"
-        name="telefono"
-        placeholder="Teléfono"
-        value={formulario.telefono}
-        onChange={manejarCambio}
-        required
-      />
+  type="text"
+  name="telefono"
+  placeholder="Teléfono"
+  value={formulario.telefono}
+  onChange={manejarCambio}
+  inputMode="numeric"
+  pattern="[0-9]{10}"
+  minLength="10"
+  maxLength="10"
+  title="El teléfono solo debe contener 10 números."
+  required
+/>
 
       <select
         name="idRol"

@@ -4,7 +4,31 @@ import ListaUsuarios from "./ListaUsuarios";
 import FormularioUsuario from "./FormularioUsuario";
 import "../GestionUsuarios.css";
 
-// Componente principal del módulo Gestión de Usuarios
+import {
+  listarUsuarios,
+  actualizarUsuario,
+  eliminarUsuario as eliminarUsuarioService,
+} from "../services/usuarioService";
+
+/**
+ * GestionUsuarios
+ *
+ * Componente principal del módulo Gestión de Usuarios de AppGuard.
+ * Coordina la carga, búsqueda, edición, cambio de estado y eliminación
+ * de usuarios, y controla la apertura del formulario de registro o edición.
+ *
+ * Funcionalidad/HU:
+ * - Consultar usuarios registrados.
+ * - Buscar usuarios.
+ * - Registrar usuarios.
+ * - Modificar usuarios.
+ * - Cambiar el estado de un usuario.
+ * - Eliminar usuarios.
+ *
+ * Props:
+ * - Este componente no recibe props actualmente.
+ */
+
 function GestionUsuarios() {
   const [busqueda, setBusqueda] = useState("");
   const [usuarios, setUsuarios] = useState([]);
@@ -12,28 +36,19 @@ function GestionUsuarios() {
   const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null);
 const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
-  const API_URL = "http://localhost:8080/api/usuarios";
-
   // Cargar usuarios desde la API
   useEffect(() => {
     cargarUsuarios();
   }, []);
 
   async function cargarUsuarios() {
-    try {
-      const respuesta = await fetch(API_URL);
-
-      if (!respuesta.ok) {
-        throw new Error("No fue posible consultar los usuarios.");
-      }
-
-      const datos = await respuesta.json();
-
-      setUsuarios(datos);
-    } catch (error) {
-      console.error("Error al cargar usuarios:", error);
-    }
+  try {
+    const datos = await listarUsuarios();
+    setUsuarios(datos);
+  } catch (error) {
+    console.error("Error al cargar usuarios:", error);
   }
+}
 
   // Filtrar usuarios según el texto escrito en el buscador
   const usuariosFiltrados = usuarios.filter((usuario) => {
@@ -48,24 +63,24 @@ const [mostrarFormulario, setMostrarFormulario] = useState(false);
     );
   });
 
-  function editarUsuario(usuario) {
+  function manejarEditarUsuario(usuario) {
   setUsuarioSeleccionado(usuario);
   setMostrarFormulario(true);
 }
 
-async function usuarioGuardado() {
+async function manejarUsuarioGuardado() {
   await cargarUsuarios();
 
   setMostrarFormulario(false);
   setUsuarioSeleccionado(null);
 }
 
-function cancelarFormulario() {
+function manejarCancelarFormulario() {
   setMostrarFormulario(false);
   setUsuarioSeleccionado(null);
 }
 
-async function cambiarEstado(usuario) {
+async function manejarCambiarEstado(usuario) {
   const nuevoEstado =
     usuario.estado === "Activo" ? "Inactivo" : "Activo";
 
@@ -81,17 +96,7 @@ async function cambiarEstado(usuario) {
       estado: nuevoEstado,
     };
 
-    const respuesta = await fetch(API_URL, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(datos),
-    });
-
-    if (!respuesta.ok) {
-      throw new Error("No fue posible cambiar el estado.");
-    }
+    await actualizarUsuario(datos);
 
     await cargarUsuarios();
   } catch (error) {
@@ -100,7 +105,7 @@ async function cambiarEstado(usuario) {
   }
 }
 
-async function eliminarUsuario(usuario) {
+async function manejarEliminarUsuario(usuario) {
   const confirmar = window.confirm(
     `¿Desea eliminar a ${usuario.nombre} ${usuario.apellido}?`
   );
@@ -110,16 +115,7 @@ async function eliminarUsuario(usuario) {
   }
 
   try {
-    const respuesta = await fetch(
-      `${API_URL}/${usuario.idUsuario}`,
-      {
-        method: "DELETE",
-      }
-    );
-
-    if (!respuesta.ok) {
-      throw new Error("No fue posible eliminar el usuario.");
-    }
+    await eliminarUsuarioService(usuario.idUsuario);
 
     await cargarUsuarios();
 
@@ -188,15 +184,15 @@ async function eliminarUsuario(usuario) {
 
         <ListaUsuarios
   usuarios={usuariosFiltrados}
-  onEditar={editarUsuario}
-  onCambiarEstado={cambiarEstado}
-  onEliminar={eliminarUsuario}
+  onEditar={manejarEditarUsuario}
+  onCambiarEstado={manejarCambiarEstado}
+  onEliminar={manejarEliminarUsuario}
 />
 {mostrarFormulario && (
  <FormularioUsuario
   usuario={usuarioSeleccionado}
-  onGuardado={usuarioGuardado}
-  onCancelar={cancelarFormulario}
+  onGuardado={manejarUsuarioGuardado}
+  onCancelar={manejarCancelarFormulario}
 />
 )}
       </div>

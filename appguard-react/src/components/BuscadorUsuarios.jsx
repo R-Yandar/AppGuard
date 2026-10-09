@@ -1,4 +1,16 @@
-// Componente encargado de buscar usuarios
+/**
+ * BuscadorUsuarios
+ *
+ * Permite buscar y filtrar los usuarios registrados en AppGuard
+ * a partir del texto ingresado por el administrador.
+ *
+ * Funcionalidad/HU: consultar y buscar usuarios registrados.
+ *
+ * Props:
+ * - busqueda: texto actual escrito en el buscador.
+ * - onBuscar: función que actualiza el criterio de búsqueda.
+ */
+
 function BuscadorUsuarios({ busqueda, onBuscar }) {
   return (
     <div className="buscador-usuarios">

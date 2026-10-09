@@ -1,4 +1,17 @@
-// Menú lateral del módulo Administrador
+/**
+ * MenuLateral
+ *
+ * Muestra el menú principal de navegación del módulo Administrador
+ * de AppGuard y el estado general del sistema.
+ *
+ * Funcionalidad/HU:
+ * - Navegar entre las opciones principales del sistema.
+ * - Mostrar el estado activo y protegido de AppGuard.
+ *
+ * Props:
+ * - Este componente no recibe props actualmente.
+ */
+
 function MenuLateral() {
   return (
     <aside className="sidebar-modulo">
