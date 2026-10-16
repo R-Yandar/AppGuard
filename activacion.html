@@ -173,15 +173,23 @@ function mostrarPassword(id, boton) {
 
 <!-- ACTIVAR CUENTA -->
 <script>
-const btnActivarCuenta = document.getElementById("btnActivarCuenta");
+    
+btnActivarCuenta.addEventListener("click", async function () {
 
-btnActivarCuenta.addEventListener("click", function () {
+    const documento =
+        document.getElementById("documentoActivacion").value.trim();
 
-    const documento = document.getElementById("documentoActivacion").value.trim();
-    const codigo = document.getElementById("codigoActivacion").value.trim();
-    const correo = document.getElementById("correoActivacion").value.trim();
-    const password = document.getElementById("passwordActivacion").value;
-    const confirmarPassword = document.getElementById("confirmarPassword").value;
+    const codigo =
+        document.getElementById("codigoActivacion").value.trim();
+
+    const correo =
+        document.getElementById("correoActivacion").value.trim();
+
+    const password =
+        document.getElementById("passwordActivacion").value;
+
+    const confirmarPassword =
+        document.getElementById("confirmarPassword").value;
 
     // Verificar campos vacíos
     if (
@@ -207,11 +215,48 @@ btnActivarCuenta.addEventListener("click", function () {
         return;
     }
 
-    // Activación correcta
-    alert("Cuenta activada correctamente.");
+    try {
 
-    // Regresar al inicio de sesión
-    window.location.href = "index.html";
+        const respuesta = await fetch(
+            "http://localhost:8080/api/auth/activar",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    documento: documento,
+                    correo: correo,
+                    contrasena: password
+                })
+            }
+        );
+
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+            alert(
+                datos.mensaje ||
+                "No fue posible activar la cuenta."
+            );
+            return;
+        }
+
+        alert(datos.mensaje);
+
+        window.location.href = "index.html";
+
+    } catch (error) {
+
+        console.error(
+            "Error al activar la cuenta:",
+            error
+        );
+
+        alert(
+            "No fue posible conectar con el servidor."
+        );
+    }
 });
 
 </script>
