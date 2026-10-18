@@ -63,9 +63,20 @@ public class AuthService {
  * @param contrasena contraseña definida por el usuario
  * @return usuario activado si los datos son válidos
  */
+/**
+ * Activa la cuenta de un usuario validando documento,
+ * correo y código de activación.
+ *
+ * @param documento documento del usuario
+ * @param correo correo registrado
+ * @param codigoActivacion código de seis dígitos asignado al usuario
+ * @param contrasena contraseña definida por el usuario
+ * @return usuario activado si los datos son válidos
+ */
 public Optional<Usuario> activarCuenta(
         String documento,
         String correo,
+        String codigoActivacion,
         String contrasena) {
 
     Optional<Usuario> usuarioEncontrado =
@@ -77,16 +88,34 @@ public Optional<Usuario> activarCuenta(
 
     Usuario usuario = usuarioEncontrado.get();
 
+    // Evitar que una cuenta ya activada cambie su contraseña
+    // utilizando nuevamente el formulario de activación.
+    if (usuario.getContrasena() != null &&
+        !usuario.getContrasena().isBlank()) {
+        return Optional.empty();
+    }
+
+    // Validar que el correo ingresado corresponda al registrado.
     if (usuario.getCorreo() == null ||
         !usuario.getCorreo().equalsIgnoreCase(correo)) {
         return Optional.empty();
     }
 
+    // Validar el código de activación asignado al usuario.
+    if (usuario.getCodigoActivacion() == null ||
+        !usuario.getCodigoActivacion().equals(codigoActivacion)) {
+        return Optional.empty();
+    }
+
+    // Cifrar la contraseña antes de guardarla.
     String contrasenaCifrada =
             passwordEncoder.encode(contrasena);
 
     usuario.setContrasena(contrasenaCifrada);
     usuario.setEstado("Activo");
+
+    // El código deja de ser válido después de activar la cuenta.
+    usuario.setCodigoActivacion(null);
 
     usuarioRepository.save(usuario);
 

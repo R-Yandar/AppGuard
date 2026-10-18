@@ -29,6 +29,9 @@ public class Usuario {
     private String documento;
     private String correo;
 
+    @Column(name = "codigo_activacion")
+private String codigoActivacion;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 private String contrasena;
 
@@ -85,6 +88,15 @@ private String contrasena;
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public String getCodigoActivacion() {
+    return codigoActivacion;
+}
+
+public void setCodigoActivacion(String codigoActivacion) {
+    this.codigoActivacion = codigoActivacion;
+    
+}
 
     public String getContrasena() {
         return contrasena;

@@ -66,15 +66,15 @@ public class AuthController {
 
         if (usuario.isEmpty()) {
 
-            respuesta.put(
-                "mensaje",
-                "Error en la autenticación. Verifique sus credenciales."
-            );
+    respuesta.put(
+        "mensaje",
+        "Error en la autenticación. Verifique sus credenciales."
+    );
 
-            return ResponseEntity
-                    .status(HttpStatus.UNAUTHORIZED)
-                    .body(respuesta);
-        }
+    return ResponseEntity
+            .status(HttpStatus.UNAUTHORIZED)
+            .body(respuesta);
+}
 
         Usuario usuarioAutenticado = usuario.get();
 
@@ -98,13 +98,16 @@ public ResponseEntity<Map<String, Object>> activarCuenta(
         @RequestBody Map<String, String> datos) {
 
     String documento = datos.get("documento");
-    String correo = datos.get("correo");
-    String contrasena = datos.get("contrasena");
+String correo = datos.get("correo");
+String codigoActivacion = datos.get("codigoActivacion");
+String contrasena = datos.get("contrasena");
 
     Map<String, Object> respuesta = new HashMap<>();
 
-    if (documento == null || correo == null || contrasena == null ||
-        documento.isBlank() || correo.isBlank() || contrasena.isBlank()) {
+   if (documento == null || correo == null ||
+    codigoActivacion == null || contrasena == null ||
+    documento.isBlank() || correo.isBlank() ||
+    codigoActivacion.isBlank() || contrasena.isBlank()) {
 
         respuesta.put(
             "mensaje",
@@ -117,23 +120,24 @@ public ResponseEntity<Map<String, Object>> activarCuenta(
     }
 
     Optional<Usuario> usuario =
-            authService.activarCuenta(
-                documento,
-                correo,
-                contrasena
-            );
+    authService.activarCuenta(
+        documento,
+        correo,
+        codigoActivacion,
+        contrasena
+    );
 
     if (usuario.isEmpty()) {
 
-        respuesta.put(
-            "mensaje",
-            "No fue posible activar la cuenta. Verifique los datos ingresados."
-        );
+    respuesta.put(
+        "mensaje",
+        "La cuenta ya se encuentra activada o los datos ingresados no son correctos."
+    );
 
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(respuesta);
-    }
+    return ResponseEntity
+            .status(HttpStatus.BAD_REQUEST)
+            .body(respuesta);
+}
 
     Usuario usuarioActivado = usuario.get();
 

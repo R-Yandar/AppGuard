@@ -1,5 +1,6 @@
 package com.appguard.controller;
 
+import java.security.SecureRandom;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,11 +22,27 @@ import com.appguard.repository.UsuarioRepository;
  */
 @CrossOrigin(origins = {
     "http://localhost:5173",
-    "http://127.0.0.1:5173"
+    "http://127.0.0.1:5173",
+    "http://localhost:5501",
+    "http://127.0.0.1:5501"
 })
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
+
+        /**
+     * Generador seguro utilizado para crear códigos
+     * de activación de seis dígitos.
+     */
+    private static final SecureRandom RANDOM = new SecureRandom();
+
+    /**
+     * Genera un código numérico aleatorio de seis dígitos.
+     */
+    private String generarCodigoActivacion() {
+        int codigo = 100000 + RANDOM.nextInt(900000);
+        return String.valueOf(codigo);
+    }
 
     private final UsuarioRepository usuarioRepository;
 
@@ -45,17 +62,23 @@ public class UsuarioController {
     }
 
     /**
-     * Registra un nuevo usuario.
-     */
-    @PostMapping
-    public Usuario crearUsuario(@RequestBody Usuario usuario) {
+ * Registra un nuevo usuario y genera automáticamente
+ * su código de activación de seis dígitos.
+ */
+@PostMapping
+public Usuario crearUsuario(@RequestBody Usuario usuario) {
 
-        if (usuario.getEstado() == null || usuario.getEstado().isBlank()) {
-            usuario.setEstado("Activo");
-        }
+    // Generar un código de activación aleatorio de seis dígitos.
+    String codigoActivacion = generarCodigoActivacion();
+    usuario.setCodigoActivacion(codigoActivacion);
 
-        return usuarioRepository.save(usuario);
-    }
+    // Todo usuario nuevo permanece inactivo hasta completar
+// correctamente el proceso de activación de su cuenta.
+usuario.setEstado("Inactivo");
+
+    return usuarioRepository.save(usuario);
+}
+
     @PutMapping
 public Usuario actualizarUsuario(@RequestBody Usuario usuario) {
 
