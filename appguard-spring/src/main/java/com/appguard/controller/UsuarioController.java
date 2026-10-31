@@ -79,6 +79,13 @@ usuario.setEstado("Inactivo");
     return usuarioRepository.save(usuario);
 }
 
+/**
+ * Actualiza la información de un usuario existente.
+ *
+ * @param usuario datos actualizados del usuario
+ * @return usuario actualizado
+ */
+
     @PutMapping
 public Usuario actualizarUsuario(@RequestBody Usuario usuario) {
 
@@ -99,6 +106,12 @@ public Usuario actualizarUsuario(@RequestBody Usuario usuario) {
 
     return usuarioRepository.save(existente);
 }
+
+/**
+ * Elimina un usuario registrado según su identificador.
+ *
+ * @param id identificador del usuario a eliminar
+ */
 
 @DeleteMapping("/{id}")
 public void eliminarUsuario(@PathVariable Integer id) {

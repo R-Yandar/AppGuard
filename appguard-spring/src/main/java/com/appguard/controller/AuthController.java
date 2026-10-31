@@ -90,7 +90,7 @@ public class AuthController {
     /**
  * Activa la cuenta de un usuario registrado.
  *
- * @param datos documento, correo y contraseña
+ * @param datos documento, correo, código de activación y contraseña
  * @return respuesta de activación
  */
 @PostMapping("/activar")
@@ -111,7 +111,7 @@ String contrasena = datos.get("contrasena");
 
         respuesta.put(
             "mensaje",
-            "Documento, correo y contraseña son obligatorios."
+            "Documento, correo, código de activación y contraseña son obligatorios."
         );
 
         return ResponseEntity
