@@ -96,7 +96,7 @@ function FormularioUsuario({
         correo: formulario.correo,
         telefono: formulario.telefono,
         idRol: Number(formulario.idRol),
-        estado: esEdicion ? usuario.estado : "Activo",
+estado: esEdicion ? usuario.estado : "Inactivo",
       };
 
       if (esEdicion) {
