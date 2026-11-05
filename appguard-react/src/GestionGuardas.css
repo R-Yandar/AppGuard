@@ -1,0 +1,273 @@
+/* =========================================================
+   APPGUARD - GESTIÓN DE GUARDAS
+   ========================================================= */
+
+.gestion-guardas {
+  width: 100%;
+}
+
+.encabezado-guardas {
+  margin-bottom: 24px;
+}
+
+.encabezado-guardas h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #ffffff;
+}
+
+.encabezado-guardas p {
+  margin-top: 6px;
+  color: #b8c7dc;
+}
+
+
+/* =========================================================
+   TARJETAS DE FUNCIONES
+   ========================================================= */
+
+.grid-funciones-guardas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.tarjeta-guarda {
+  min-height: 150px;
+  padding: 22px;
+  border: 1px solid rgba(57, 137, 255, 0.35);
+  border-radius: 14px;
+
+  background: rgba(7, 28, 57, 0.88);
+
+  color: #ffffff;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.tarjeta-guarda:hover {
+  transform: translateY(-3px);
+  border-color: #2f86ff;
+  background: rgba(11, 45, 88, 0.95);
+}
+
+.tarjeta-guarda h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.tarjeta-guarda p {
+  margin: 0;
+  line-height: 1.5;
+  color: #b8c7dc;
+}
+
+
+/* =========================================================
+   FORMULARIO DE ASISTENCIA
+   ========================================================= */
+
+.formulario-asistencia {
+  margin-top: 20px;
+  padding: 24px;
+
+  border: 1px solid rgba(57, 137, 255, 0.35);
+  border-radius: 14px;
+
+  background: rgba(5, 24, 50, 0.94);
+}
+
+.formulario-asistencia h2 {
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.formulario-asistencia input,
+.formulario-asistencia select {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-bottom: 14px;
+  padding: 12px 14px;
+
+  border: 1px solid #375275;
+  border-radius: 8px;
+
+  background: #071a33;
+  color: #ffffff;
+
+  font-size: 14px;
+}
+
+.formulario-asistencia input:focus,
+.formulario-asistencia select:focus {
+  outline: none;
+  border-color: #2f86ff;
+}
+
+.formulario-asistencia input::placeholder {
+  color: #879bb5;
+}
+
+
+/* =========================================================
+   BOTONES DEL FORMULARIO
+   ========================================================= */
+
+.formulario-asistencia .acciones-formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.formulario-asistencia .acciones-formulario button {
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.formulario-asistencia .acciones-formulario button:first-child {
+  background: #263b58;
+  color: #ffffff;
+}
+
+.formulario-asistencia .acciones-formulario button:last-child {
+  background: #1677ff;
+  color: #ffffff;
+}
+
+.formulario-asistencia .acciones-formulario button:hover {
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .grid-funciones-guardas {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   ESTADO DEL TURNO
+   ========================================================= */
+
+.estado-turno {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 24px;
+  padding: 28px;
+
+  border: 1px solid rgba(57, 137, 255, 0.45);
+  border-radius: 14px;
+
+  background: rgba(5, 24, 50, 0.95);
+}
+
+.encabezado-estado-turno {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.encabezado-estado-turno h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 26px;
+}
+
+.encabezado-estado-turno p {
+  margin: 5px 0 0;
+  color: #9db0c8;
+}
+
+.estado-turno-activo {
+  padding: 8px 16px;
+
+  border: 1px solid #35c46a;
+  border-radius: 20px;
+
+  background: rgba(25, 180, 90, 0.18);
+  color: #5be58c;
+
+  font-weight: 700;
+}
+
+.detalle-turno {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.dato-turno {
+  padding: 18px;
+
+  border: 1px solid rgba(57, 137, 255, 0.25);
+  border-radius: 10px;
+
+  background: rgba(8, 35, 68, 0.9);
+
+  text-align: center;
+}
+
+.dato-turno span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #93a9c4;
+  font-size: 13px;
+}
+
+.dato-turno strong {
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.acciones-estado-turno {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.acciones-estado-turno button {
+  padding: 10px 24px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #1677ff;
+  color: #ffffff;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.acciones-estado-turno button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .detalle-turno {
+    grid-template-columns: 1fr;
+  }
+}

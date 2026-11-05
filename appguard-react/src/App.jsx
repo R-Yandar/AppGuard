@@ -1,6 +1,6 @@
 import Encabezado from "./components/Encabezado";
 import MenuLateral from "./components/MenuLateral";
-import GestionUsuarios from "./components/GestionUsuarios";
+import GestionGuardas from "./components/GestionGuardas";
 import "./App.css";
 
 // Componente principal de AppGuard
@@ -11,7 +11,7 @@ function App() {
 
       <main className="contenido-modulo">
         <Encabezado />
-        <GestionUsuarios />
+        <GestionGuardas />
       </main>
     </div>
   );
