@@ -53,4 +53,15 @@ export async function finalizarTurno(idGuarda) {
   }
 
   return respuesta.json();
+
+  }
+  
+  export async function listarPersonalEnServicio() {
+  const respuesta = await fetch(`${API_URL}/personal-en-servicio`);
+
+  if (!respuesta.ok) {
+    throw new Error("No fue posible consultar el personal en servicio.");
+  }
+
+  return respuesta.json();
 }

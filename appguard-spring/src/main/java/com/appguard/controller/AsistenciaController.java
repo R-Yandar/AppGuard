@@ -182,4 +182,33 @@ public Map<String, Object> finalizarTurno(
     return respuesta;
 }
 
+/**
+ * Consulta el personal que se encuentra actualmente en servicio.
+ */
+@GetMapping("/personal-en-servicio")
+public List<Map<String, Object>> listarPersonalEnServicio() {
+
+    List<Asistencia> asistencias =
+            asistenciaRepository.findAll();
+
+    return asistencias.stream()
+            .filter(registro ->
+                    registro.getFecha().equals(LocalDate.now())
+                    && registro.getHoraSalida() == null
+            )
+            .map(registro -> {
+                Map<String, Object> item = new HashMap<>();
+
+                item.put("idAsistencia", registro.getIdAsistencia());
+                item.put("idGuarda", registro.getIdGuarda());
+                item.put("fecha", registro.getFecha());
+                item.put("horaEntrada", registro.getHoraEntrada());
+                item.put("asistencia", registro.getEstado());
+                item.put("estadoTurno", "Activo");
+
+                return item;
+            })
+            .toList();
+}
+
 }

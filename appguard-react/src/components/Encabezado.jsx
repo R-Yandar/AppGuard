@@ -1,13 +1,12 @@
-// Encabezado del módulo Administrador
-function Encabezado() {
+function Encabezado({ titulo, descripcion }) {
   return (
     <header className="encabezado-modulo">
       <div className="titulo-modulo">
         <span className="volver-panel">←</span>
 
         <div>
-          <h1>Administrador</h1>
-          <p>Administración de usuarios y operación</p>
+          <h1>{titulo}</h1>
+          <p>{descripcion}</p>
         </div>
       </div>
 
