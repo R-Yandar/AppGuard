@@ -16,3 +16,4 @@ Thumbs.db
 *.log
 # Carpeta de compilación de Java
 bin/
+appguard-spring/evidencias-novedades/
