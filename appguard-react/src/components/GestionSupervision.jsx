@@ -5,6 +5,7 @@ import "../GestionSupervision.css";
 import ControlAsistencia from "./ControlAsistencia";
 import { listarAsistencias } from "../services/asistenciaService";
 import FormularioNovedad from "./FormularioNovedad";
+import AjustesOperativos from "./AjustesOperativos";
 
 function GestionSupervision() {
 
@@ -13,6 +14,7 @@ const [mostrarPersonal, setMostrarPersonal] = useState(false);
 const [asistencias, setAsistencias] = useState([]);
 const [mostrarAsistencias, setMostrarAsistencias] = useState(false);
 const [mostrarNovedad, setMostrarNovedad] = useState(false);
+const [mostrarAjustes, setMostrarAjustes] = useState(false);
 
 async function manejarPersonalEnServicio() {
   try {
@@ -78,7 +80,10 @@ async function manejarPersonalEnServicio() {
           </p>
         </button>
 
-        <button className="tarjeta-supervision morado">
+        <button
+  className="tarjeta-supervision morado"
+  onClick={() => setMostrarAjustes(true)}
+>
           <i className="bi bi-sliders"></i>
           <h3>Ajustes operativos</h3>
           <p>
@@ -116,6 +121,13 @@ async function manejarPersonalEnServicio() {
   <FormularioNovedad
     onCerrar={() => setMostrarNovedad(false)}
   />
+)}
+
+{mostrarAjustes && (
+  <AjustesOperativos
+    onCerrar={() => setMostrarAjustes(false)}
+  />
+  
 )}
 
 </section>
