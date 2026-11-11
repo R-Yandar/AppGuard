@@ -45,3 +45,29 @@ export async function actualizarTurno(idTurno, turno) {
 
   return respuesta.json();
 }
+
+export async function consultarDisponibilidad(
+  idGuarda,
+  fecha,
+  horaInicio,
+  horaFin
+) {
+  const parametros = new URLSearchParams({
+    idGuarda,
+    fecha,
+    horaInicio,
+    horaFin,
+  });
+
+  const respuesta = await fetch(
+    `${API_URL}/disponibilidad?${parametros.toString()}`
+  );
+
+  if (!respuesta.ok) {
+    throw new Error(
+      "No fue posible consultar la disponibilidad del guarda."
+    );
+  }
+
+  return respuesta.json();
+}

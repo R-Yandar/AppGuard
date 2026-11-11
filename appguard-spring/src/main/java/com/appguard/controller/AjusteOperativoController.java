@@ -23,6 +23,11 @@ import com.appguard.repository.PuestoServicioRepository;
 import com.appguard.repository.TurnoRepository;
 import com.appguard.repository.UsuarioRepository;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
 @CrossOrigin(origins = {
     "http://localhost:5173",
     "http://127.0.0.1:5173"
@@ -118,6 +123,49 @@ public class AjusteOperativoController {
         return puestoRepository.findByEstado("Activo");
     }
 
+@GetMapping("/disponibilidad")
+public Map<String, Object> consultarDisponibilidad(
+        @RequestParam Integer idGuarda,
+        @RequestParam LocalDate fecha,
+        @RequestParam LocalTime horaInicio,
+        @RequestParam LocalTime horaFin) {
+
+    Map<String, Object> respuesta = new HashMap<>();
+
+    List<Turno> cruces =
+            turnoRepository
+                    .findByIdGuardaAndFechaAndHoraInicioLessThanAndHoraFinGreaterThan(
+                            idGuarda,
+                            fecha,
+                            horaFin,
+                            horaInicio
+                    );
+
+    if (cruces.isEmpty()) {
+        respuesta.put("estadoOperativo", "Disponible");
+        respuesta.put("disponible", true);
+
+        return respuesta;
+    }
+
+    Turno turno = cruces.get(0);
+
+    respuesta.put("disponible", false);
+    respuesta.put("idTurno", turno.getIdTurno());
+    respuesta.put("fecha", turno.getFecha());
+    respuesta.put("horaInicio", turno.getHoraInicio());
+    respuesta.put("horaFin", turno.getHoraFin());
+    respuesta.put("idPuesto", turno.getIdPuesto());
+
+    if ("Activo".equalsIgnoreCase(turno.getEstado())) {
+        respuesta.put("estadoOperativo", "En servicio");
+    } else {
+        respuesta.put("estadoOperativo", "Programado");
+    }
+
+    return respuesta;
+}
+    
     @PutMapping("/turnos/{idTurno}")
     public Map<String, Object> actualizarTurno(
             @PathVariable Integer idTurno,

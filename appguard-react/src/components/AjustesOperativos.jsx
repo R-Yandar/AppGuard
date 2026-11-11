@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {
   listarGuardasActivos,
   listarPuestosActivos,
+  consultarDisponibilidad,
 } from "../services/ajusteOperativoService";
 
 import "../PersonalEnServicio.css";
@@ -12,6 +13,8 @@ function AjustesOperativos({ onCerrar }) {
   const [puestos, setPuestos] = useState([]);
 
   const [idGuarda, setIdGuarda] = useState("");
+  const [guardaSeleccionado, setGuardaSeleccionado] = useState(null);
+const [estadoOperativo, setEstadoOperativo] = useState("");
   const [idPuesto, setIdPuesto] = useState("");
 
   const [fecha, setFecha] = useState("");
@@ -27,12 +30,44 @@ function AjustesOperativos({ onCerrar }) {
 
   const [mostrarResultadosPuestos, setMostrarResultadosPuestos] =
     useState(false);
-    const [guardaSeleccionado, setGuardaSeleccionado] = useState(null);
-
 
   useEffect(() => {
     cargarDatos();
   }, []);
+
+  useEffect(() => {
+  async function verificarDisponibilidad() {
+    if (
+      !idGuarda ||
+      !fecha ||
+      !horaInicio ||
+      !horaFin
+    ) {
+      setEstadoOperativo("");
+      return;
+    }
+
+    try {
+      const resultado = await consultarDisponibilidad(
+        idGuarda,
+        fecha,
+        horaInicio,
+        horaFin
+      );
+
+      setEstadoOperativo(resultado.estadoOperativo);
+    } catch (error) {
+      console.error(
+        "Error al consultar disponibilidad:",
+        error
+      );
+
+      setEstadoOperativo("");
+    }
+  }
+
+  verificarDisponibilidad();
+}, [idGuarda, fecha, horaInicio, horaFin]);
 
   async function cargarDatos() {
     try {
@@ -192,7 +227,7 @@ function AjustesOperativos({ onCerrar }) {
       <span>Estado operativo</span>
 
 <strong className="estado-guarda-activo">
-  Disponible
+  {estadoOperativo || "Seleccione fecha y horario"}
 </strong>
     </div>
   </div>
