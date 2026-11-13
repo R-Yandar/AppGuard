@@ -2,6 +2,7 @@ package com.appguard.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,14 +15,22 @@ public class AlertaPanico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_alerta")
     private Integer idAlerta;
 
+    @Column(name = "id_guarda")
     private Integer idGuarda;
 
+    @Column(name = "id_puesto")
+    private Integer idPuesto;
+
+    @Column(name = "fecha")
     private LocalDateTime fecha;
 
+    @Column(name = "ubicacion")
     private String ubicacion;
 
+    @Column(name = "estado")
     private String estado;
 
     public AlertaPanico() {
@@ -41,6 +50,14 @@ public class AlertaPanico {
 
     public void setIdGuarda(Integer idGuarda) {
         this.idGuarda = idGuarda;
+    }
+
+    public Integer getIdPuesto() {
+        return idPuesto;
+    }
+
+    public void setIdPuesto(Integer idPuesto) {
+        this.idPuesto = idPuesto;
     }
 
     public LocalDateTime getFecha() {

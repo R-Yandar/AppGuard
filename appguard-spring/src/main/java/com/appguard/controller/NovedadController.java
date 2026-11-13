@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.appguard.model.EvidenciaNovedad;
 import com.appguard.model.Novedad;
@@ -47,6 +48,13 @@ public class NovedadController {
     public List<Novedad> listarNovedades() {
         return novedadRepository.findAll();
     }
+
+@GetMapping("/{idNovedad}/evidencias")
+public List<EvidenciaNovedad> listarEvidencias(
+        @PathVariable Integer idNovedad) {
+
+    return evidenciaRepository.findByIdNovedad(idNovedad);
+}
 
     @PostMapping
     public Novedad registrarNovedad(

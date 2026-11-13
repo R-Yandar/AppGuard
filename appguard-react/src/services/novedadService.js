@@ -32,3 +32,14 @@ export async function listarNovedades() {
 
   return respuesta.json();
 }
+export async function listarEvidenciasNovedad(idNovedad) {
+  const respuesta = await fetch(
+    `${API_URL}/${idNovedad}/evidencias`
+  );
+
+  if (!respuesta.ok) {
+    throw new Error("No fue posible consultar las evidencias.");
+  }
+
+  return respuesta.json();
+}

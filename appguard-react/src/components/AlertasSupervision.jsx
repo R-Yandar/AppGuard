@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   listarAlertasActivas,
@@ -9,15 +9,32 @@ import "../PersonalEnServicio.css";
 
 function AlertasSupervision({ onCerrar }) {
   const [alertas, setAlertas] = useState([]);
+ const ultimaCantidad = useRef(0);
+const [hayNuevaAlerta, setHayNuevaAlerta] = useState(false);
 
   useEffect(() => {
+  cargarAlertas();
+
+  const intervalo = setInterval(() => {
     cargarAlertas();
-  }, []);
+  }, 5000);
+
+  return () => {
+    clearInterval(intervalo);
+  };
+}, []);
 
   async function cargarAlertas() {
     try {
       const datos = await listarAlertasActivas();
-      setAlertas(datos);
+      
+      if (datos.length > ultimaCantidad.current) {
+  setHayNuevaAlerta(true);
+}
+
+ultimaCantidad.current = datos.length;
+setAlertas(datos);
+
     } catch (error) {
       console.error("Error al consultar alertas:", error);
       alert("No fue posible consultar las alertas.");
@@ -53,6 +70,19 @@ function AlertasSupervision({ onCerrar }) {
         </button>
       </div>
 
+{hayNuevaAlerta && alertas.length > 0 && (
+  <div className="aviso-nueva-alerta">
+    <span>Nueva alerta activa detectada.</span>
+
+    <button
+      type="button"
+      onClick={() => setHayNuevaAlerta(false)}
+    >
+      Entendido
+    </button>
+  </div>
+)}
+
       {alertas.length === 0 ? (
         <div className="sin-alertas">
           No hay alertas activas actualmente.
@@ -70,16 +100,25 @@ function AlertasSupervision({ onCerrar }) {
                 </strong>
 
                 <span>
-                  Guarda: {alerta.idGuarda}
-                </span>
+  Guarda: {alerta.nombreGuarda || `ID ${alerta.idGuarda}`}
+</span>
 
-                <span>
-                  Fecha: {alerta.fecha}
-                </span>
+<span>
+  Código: {alerta.codigoGuarda || "No registrado"}
+</span>
 
-                <span>
-                  Ubicación: {alerta.ubicacion || "No registrada"}
-                </span>
+<span>
+  Puesto: {alerta.puesto || "No identificado"}
+</span>
+
+<span>
+  Fecha: {alerta.fecha}
+</span>
+
+<span>
+  Ubicación: {alerta.ubicacion || alerta.direccionPuesto || "No registrada"}
+</span>
+
               </div>
 
               <div>

@@ -1,6 +1,8 @@
 import Encabezado from "./components/Encabezado";
 import MenuLateral from "./components/MenuLateral";
 import GestionSupervision from "./components/GestionSupervision";
+import GestionPanico from "./components/GestionPanico";
+import GestionNovedades from "./components/GestionNovedades";
 import "./App.css";
 
 // Componente principal de AppGuard
@@ -10,11 +12,12 @@ function App() {
       <MenuLateral />
 
       <main className="contenido-modulo">
-        <Encabezado
-  titulo="Supervisión"
-  descripcion="Control y seguimiento de la operación"
+       <Encabezado
+  titulo="Novedades"
+  descripcion="Registro y seguimiento de novedades operativas"
 />
-        <GestionSupervision />
+
+<GestionNovedades />
       </main>
     </div>
   );
