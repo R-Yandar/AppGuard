@@ -58,11 +58,6 @@ async function manejarFinalizarTurno() {
   return (
     <section className="gestion-guardas">
 
-      <div className="encabezado-guardas">
-        <h1>Guardas</h1>
-        <p>Gestión operativa del personal de vigilancia</p>
-      </div>
-
       <div className="grid-funciones-guardas">
 
         <button

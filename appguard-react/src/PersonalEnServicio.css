@@ -1695,3 +1695,960 @@
         height: 240px;
     }
 }
+/* =========================================================
+   HORARIOS Y CRONOGRAMAS
+   ========================================================= */
+
+
+/* BUSCADOR */
+
+.buscador-horarios {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.campo-buscador-horarios {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    flex: 1;
+    max-width: 560px;
+}
+
+.campo-buscador-horarios label {
+    color: #dbe7f5;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-buscador-horarios input {
+    width: 100%;
+    height: 42px;
+
+    box-sizing: border-box;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(47, 128, 237, 0.55);
+    border-radius: 8px;
+
+    background: rgba(4, 17, 35, 0.92);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.campo-buscador-horarios input::placeholder {
+    color: #7f91a7;
+}
+
+.campo-buscador-horarios input:focus {
+    border-color: #2f80ed;
+
+    box-shadow:
+        0 0 0 3px rgba(47, 128, 237, 0.13);
+}
+
+
+/* =========================================================
+   BOTONES DEL BUSCADOR
+   ========================================================= */
+
+.buscador-horarios .btn-principal,
+.buscador-horarios .btn-secundario {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.buscador-horarios .btn-principal {
+    border: 1px solid #2f80ed;
+
+    background: #1976e8;
+    color: #ffffff;
+}
+
+.buscador-horarios .btn-principal:hover {
+    background: #2b87f3;
+
+    transform: translateY(-1px);
+}
+
+.buscador-horarios .btn-secundario {
+    border: 1px solid rgba(47, 128, 237, 0.55);
+
+    background: transparent;
+    color: #ffffff;
+}
+
+.buscador-horarios .btn-secundario:hover {
+    background: rgba(47, 128, 237, 0.12);
+
+    border-color: #2f80ed;
+}
+
+
+/* =========================================================
+   RESULTADOS DE BÚSQUEDA
+   ========================================================= */
+
+.resultados-busqueda-horarios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+.resultado-guarda-horarios {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(47, 128, 237, 0.35);
+    border-radius: 10px;
+
+    background: rgba(8, 31, 59, 0.82);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.resultado-guarda-horarios:hover {
+    transform: translateY(-2px);
+
+    border-color: #2f80ed;
+
+    background: rgba(47, 128, 237, 0.12);
+}
+
+.resultado-guarda-horarios strong {
+    margin-bottom: 3px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.resultado-guarda-horarios span {
+    color: #aebdce;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   INFORMACIÓN DEL GUARDA
+   ========================================================= */
+
+.resumen-guarda-horarios {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 12px;
+
+    margin: 22px 0 18px;
+
+    padding: 16px;
+
+    border: 1px solid rgba(47, 128, 237, 0.30);
+    border-radius: 10px;
+
+    background: rgba(8, 31, 59, 0.72);
+}
+
+.resumen-guarda-horarios > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.resumen-guarda-horarios span {
+    color: #8fa3b8;
+
+    font-size: 11px;
+}
+
+.resumen-guarda-horarios strong {
+    overflow: hidden;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   TABLA DEL CRONOGRAMA
+   ========================================================= */
+
+.tabla-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid rgba(47, 128, 237, 0.25);
+    border-radius: 11px;
+
+    background: rgba(4, 17, 35, 0.6);
+}
+
+.tabla-appguard {
+    width: 100%;
+    min-width: 900px;
+
+    border-collapse: collapse;
+
+    color: #ffffff;
+
+    font-family: inherit;
+}
+
+.tabla-appguard thead {
+    background: rgba(47, 128, 237, 0.10);
+}
+
+.tabla-appguard th {
+    padding: 13px 14px;
+
+    border-bottom: 1px solid rgba(47, 128, 237, 0.28);
+
+    color: #8fbaff;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    text-align: left;
+    text-transform: uppercase;
+
+    letter-spacing: 0.02em;
+}
+
+.tabla-appguard td {
+    padding: 14px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: #dbe7f5;
+
+    font-size: 13px;
+
+    vertical-align: middle;
+}
+
+.tabla-appguard tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabla-appguard tbody tr {
+    transition: background 0.15s ease;
+}
+
+.tabla-appguard tbody tr:hover {
+    background: rgba(47, 128, 237, 0.06);
+}
+
+
+/* =========================================================
+   ESTADOS DEL TURNO
+   ========================================================= */
+
+.estado-turno {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 82px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.estado-activo {
+    border: 1px solid rgba(39, 199, 111, 0.35);
+
+    background: rgba(39, 199, 111, 0.12);
+    color: #55d98b;
+}
+
+.estado-programado {
+    border: 1px solid rgba(47, 128, 237, 0.35);
+
+    background: rgba(47, 128, 237, 0.12);
+    color: #8fbaff;
+}
+
+.estado-finalizado {
+    border: 1px solid rgba(158, 175, 194, 0.30);
+
+    background: rgba(158, 175, 194, 0.10);
+    color: #c6d0dc;
+}
+
+.estado-cancelado {
+    border: 1px solid rgba(255, 82, 82, 0.35);
+
+    background: rgba(255, 82, 82, 0.10);
+    color: #ff7373;
+}
+
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+
+.texto-capitalizado {
+    text-transform: capitalize;
+}
+
+
+/* =========================================================
+   RESPONSIVE HORARIOS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .resultados-busqueda-horarios {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen-guarda-horarios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .buscador-horarios {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo-buscador-horarios {
+        max-width: none;
+    }
+
+    .buscador-horarios .btn-principal,
+    .buscador-horarios .btn-secundario {
+        width: 100%;
+    }
+
+    .resumen-guarda-horarios {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================================
+   CLIENTES
+   ========================================================= */
+
+.buscador-clientes {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.campo-buscador-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    flex: 1;
+    max-width: 560px;
+}
+
+.campo-buscador-clientes label {
+    color: #dbe7f5;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-buscador-clientes input {
+    width: 100%;
+    height: 42px;
+
+    box-sizing: border-box;
+
+    padding: 0 13px;
+
+    border: 1px solid rgba(47, 128, 237, 0.55);
+    border-radius: 8px;
+
+    background: rgba(4, 17, 35, 0.92);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+}
+
+.campo-buscador-clientes input::placeholder {
+    color: #7f91a7;
+}
+
+.campo-buscador-clientes input:focus {
+    border-color: #2f80ed;
+
+    box-shadow:
+        0 0 0 3px rgba(47, 128, 237, 0.13);
+}
+
+
+/* BOTONES */
+
+.buscador-clientes .btn-principal,
+.buscador-clientes .btn-secundario {
+    height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.buscador-clientes .btn-principal {
+    border: 1px solid #2f80ed;
+
+    background: #1976e8;
+    color: #ffffff;
+}
+
+.buscador-clientes .btn-principal:hover {
+    background: #2b87f3;
+
+    transform: translateY(-1px);
+}
+
+.buscador-clientes .btn-secundario {
+    border: 1px solid rgba(47, 128, 237, 0.55);
+
+    background: transparent;
+    color: #ffffff;
+}
+
+.buscador-clientes .btn-secundario:hover {
+    background: rgba(47, 128, 237, 0.12);
+}
+
+
+/* =========================================================
+   LISTA DE CLIENTES
+   ========================================================= */
+
+.lista-clientes {
+    display: grid;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.tarjeta-cliente {
+    display: grid;
+    grid-template-columns: 1.4fr 2fr auto;
+    align-items: center;
+    gap: 18px;
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: 1px solid rgba(47, 128, 237, 0.30);
+    border-radius: 10px;
+
+    background: rgba(8, 31, 59, 0.80);
+
+    color: #ffffff;
+
+    font-family: inherit;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.tarjeta-cliente:hover {
+    transform: translateY(-2px);
+
+    border-color: #2f80ed;
+
+    background: rgba(47, 128, 237, 0.10);
+}
+
+.tarjeta-cliente.cliente-seleccionado {
+    border-color: #2f80ed;
+
+    background: rgba(47, 128, 237, 0.14);
+}
+
+.cliente-principal,
+.cliente-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cliente-principal strong {
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.cliente-principal span,
+.cliente-contacto span {
+    color: #aebdce;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ESTADOS DEL CLIENTE
+   ========================================================= */
+
+.estado-cliente {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 74px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.cliente-activo {
+    border: 1px solid rgba(39, 199, 111, 0.35);
+
+    background: rgba(39, 199, 111, 0.12);
+    color: #55d98b;
+}
+
+.cliente-inactivo {
+    border: 1px solid rgba(255, 82, 82, 0.35);
+
+    background: rgba(255, 82, 82, 0.10);
+    color: #ff7373;
+}
+
+
+/* =========================================================
+   DETALLE DEL CLIENTE
+   ========================================================= */
+
+.detalle-cliente {
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(47, 128, 237, 0.20);
+}
+
+.encabezado-detalle-cliente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    margin-bottom: 16px;
+}
+
+.encabezado-detalle-cliente > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.encabezado-detalle-cliente > div > span {
+    color: #8fa3b8;
+
+    font-size: 11px;
+}
+
+.encabezado-detalle-cliente h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 19px;
+}
+
+.resumen-cliente {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+
+    padding: 16px;
+
+    border: 1px solid rgba(47, 128, 237, 0.28);
+    border-radius: 10px;
+
+    background: rgba(8, 31, 59, 0.70);
+}
+
+.resumen-cliente > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.resumen-cliente span {
+    color: #8fa3b8;
+
+    font-size: 11px;
+}
+
+.resumen-cliente strong {
+    overflow: hidden;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   PUESTOS DEL CLIENTE
+   ========================================================= */
+
+.seccion-puestos-cliente {
+    margin-top: 22px;
+}
+
+.titulo-puestos-cliente {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+.titulo-puestos-cliente h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 17px;
+}
+
+.titulo-puestos-cliente span {
+    color: #8fbaff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.lista-puestos-cliente {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.tarjeta-puesto-cliente {
+    display: grid;
+    grid-template-columns: 1.3fr 1.5fr auto;
+    align-items: center;
+    gap: 16px;
+
+    padding: 15px;
+
+    border: 1px solid rgba(47, 128, 237, 0.30);
+    border-radius: 10px;
+
+    background: rgba(5, 25, 52, 0.88);
+}
+
+.puesto-cliente-principal,
+.puesto-cliente-detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.puesto-cliente-principal strong,
+.puesto-cliente-detalle strong {
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+.puesto-cliente-principal span,
+.puesto-cliente-detalle span {
+    color: #8fa3b8;
+
+    font-size: 11px;
+}
+
+.estado-puesto-cliente {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 68px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.puesto-activo {
+    background: rgba(39, 199, 111, 0.12);
+    color: #55d98b;
+}
+
+.puesto-inactivo {
+    background: rgba(255, 82, 82, 0.10);
+    color: #ff7373;
+}
+
+.mensaje-clientes-vacio,
+.mensaje-puestos-cliente {
+    margin: 0;
+
+    padding: 16px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #aebdce;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE CLIENTES
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .tarjeta-cliente {
+        grid-template-columns: 1fr;
+    }
+
+    .resumen-cliente {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lista-puestos-cliente {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .buscador-clientes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo-buscador-clientes {
+        max-width: none;
+    }
+
+    .buscador-clientes .btn-principal,
+    .buscador-clientes .btn-secundario {
+        width: 100%;
+    }
+
+    .resumen-cliente {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-puesto-cliente {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado-detalle-cliente {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+/* =========================================================
+   CLIENTES - PUESTO SELECCIONADO Y PERSONAL ASIGNADO
+   ========================================================= */
+
+.tarjeta-puesto-cliente {
+    width: 100%;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.tarjeta-puesto-cliente:focus {
+    outline: none;
+}
+
+.tarjeta-puesto-cliente:hover {
+    transform: translateY(-2px);
+
+    border-color: #2f80ed;
+
+    background: rgba(47, 128, 237, 0.10);
+}
+
+.tarjeta-puesto-cliente.puesto-seleccionado {
+    border-color: #2f80ed;
+
+    background: rgba(47, 128, 237, 0.14);
+
+    box-shadow:
+        0 0 12px rgba(47, 128, 237, 0.10);
+}
+
+
+/* =========================================================
+   PERSONAL ASIGNADO AL PUESTO
+   ========================================================= */
+
+.seccion-personal-puesto {
+    margin-top: 22px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(47, 128, 237, 0.20);
+}
+
+.titulo-personal-puesto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 14px;
+}
+
+.titulo-personal-puesto > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.titulo-personal-puesto > div > span {
+    color: #8fa3b8;
+
+    font-size: 11px;
+}
+
+.titulo-personal-puesto h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+}
+
+.titulo-personal-puesto > span {
+    color: #8fbaff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.mensaje-personal-puesto {
+    margin: 0;
+
+    padding: 16px;
+
+    border: 1px solid rgba(47, 128, 237, 0.20);
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #aebdce;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .titulo-personal-puesto {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

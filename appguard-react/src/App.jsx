@@ -10,6 +10,8 @@ import GestionPanico from "./components/GestionPanico";
 import GestionNovedades from "./components/GestionNovedades";
 import GestionReportes from "./components/GestionReportes";
 import GestionAdministrador from "./components/GestionAdministrador";
+import GestionHorarios from "./components/GestionHorarios";
+import GestionClientes from "./components/GestionClientes";
 
 import "./App.css";
 
@@ -105,25 +107,10 @@ function App() {
         return <GestionAdministrador />;
 
       case "horarios":
-        return (
-          <section className="personal-servicio">
-            <h2>Horarios</h2>
-            <p>
-              El módulo de programación y cronogramas se desarrollará
-              en el siguiente paso.
-            </p>
-          </section>
-        );
+  return <GestionHorarios />;
 
       case "clientes":
-        return (
-          <section className="personal-servicio">
-            <h2>Clientes</h2>
-            <p>
-              El módulo de clientes se desarrollará posteriormente.
-            </p>
-          </section>
-        );
+  return <GestionClientes />;
 
       default:
         return (
