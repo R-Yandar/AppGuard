@@ -1122,3 +1122,576 @@
     color: #9fb0c4;
     font-size: 12px;
 }
+/* =========================================================
+   SELECTOR DE REPORTES
+   ========================================================= */
+
+.selector-reportes {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    margin: 18px 0 20px;
+}
+
+.selector-reportes button {
+    padding: 11px 18px;
+
+    border: 1px solid rgba(47, 128, 237, 0.55);
+    border-radius: 8px;
+
+    background: rgba(47, 128, 237, 0.08);
+    color: #cbd9e8;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.selector-reportes button:hover:not(:disabled) {
+    background: rgba(47, 128, 237, 0.18);
+    border-color: #2f80ed;
+    color: #ffffff;
+}
+
+.selector-reportes .reporte-seleccionado {
+    background: #1976e8;
+    border-color: #2f80ed;
+    color: #ffffff;
+}
+
+.selector-reportes button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+/* =========================================================
+   ROLES Y PERMISOS
+   ========================================================= */
+
+.lista-roles-permisos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.tarjeta-rol-permisos {
+    padding: 18px;
+
+    border: 1px solid rgba(47, 128, 237, 0.35);
+    border-radius: 12px;
+
+    background: rgba(8, 31, 59, 0.82);
+}
+
+.rol-informacion h3 {
+    margin: 0 0 6px;
+
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.rol-informacion p {
+    margin: 0 0 14px;
+
+    color: #9fb0c4;
+    font-size: 13px;
+}
+
+.permisos-rol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.permisos-rol span {
+    padding: 7px 10px;
+
+    border: 1px solid rgba(47, 128, 237, 0.35);
+    border-radius: 7px;
+
+    background: rgba(47, 128, 237, 0.1);
+    color: #bcd6ff;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+@media (max-width: 800px) {
+    .lista-roles-permisos {
+        grid-template-columns: 1fr;
+    }
+}
+.permisos-rol button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+
+    min-width: 125px;
+    padding: 9px 12px;
+
+    border-radius: 8px;
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.permisos-rol button:hover {
+    transform: translateY(-1px);
+}
+
+.permisos-rol button span {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.permiso-activo {
+    border: 1px solid rgba(39, 199, 111, 0.6);
+
+    background: rgba(39, 199, 111, 0.12);
+}
+
+.permiso-activo span {
+    color: #55d98b;
+}
+
+.permiso-inactivo {
+    border: 1px solid rgba(255, 82, 82, 0.55);
+
+    background: rgba(255, 82, 82, 0.1);
+}
+
+.permiso-inactivo span {
+    color: #ff7373;
+}
+/* =========================================================
+   ADMINISTRADOR
+   ========================================================= */
+
+.opciones-administrador {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+
+    margin-top: 20px;
+}
+
+.tarjeta-administrador {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    min-height: 135px;
+    padding: 20px;
+
+    border: 1px solid rgba(47, 128, 237, 0.35);
+    border-radius: 12px;
+
+    background: rgba(8, 31, 59, 0.82);
+    color: #ffffff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.tarjeta-administrador:hover {
+    border-color: #2f80ed;
+    background: rgba(47, 128, 237, 0.12);
+
+    transform: translateY(-2px);
+}
+
+.tarjeta-administrador strong {
+    color: #ffffff;
+
+    font-size: 17px;
+}
+
+.tarjeta-administrador span {
+    color: #9fb0c4;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.btn-volver-administrador {
+    margin-bottom: 16px;
+    padding: 9px 15px;
+
+    border: 1px solid #2f80ed;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #ffffff;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-volver-administrador:hover {
+    background: #2f80ed;
+}
+
+@media (max-width: 900px) {
+    .opciones-administrador {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================================================
+   PANEL PRINCIPAL APPGUARD
+   DISEÑO ORIGINAL MIGRADO A REACT
+   ========================================================= */
+
+.panel-principal-react {
+    width: 100%;
+}
+
+
+/* =========================================================
+   BIENVENIDA
+   ========================================================= */
+
+.bienvenida-panel-react {
+    margin-bottom: 26px;
+}
+
+.bienvenida-panel-react h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.bienvenida-panel-react h1 span {
+    color: #009dff;
+}
+
+.bienvenida-panel-react p {
+    margin: 6px 0 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   CUADRÍCULA 4 X 2
+   ========================================================= */
+
+.grid-modulos {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.tarjeta-modulo {
+    position: relative;
+
+    min-width: 0;
+    height: 290px;
+
+    padding: 22px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    background: rgba(2, 18, 48, 0.94);
+
+    color: #ffffff;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.tarjeta-modulo:hover {
+    transform: translateY(-4px);
+
+    background: rgba(4, 27, 62, 0.97);
+
+    box-shadow:
+        0 0 16px rgba(0, 133, 255, 0.26);
+}
+
+
+/* =========================================================
+   ICONOS
+   ========================================================= */
+
+.icono-modulo {
+    width: 58px;
+    height: 58px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+.icono-modulo i {
+    line-height: 1;
+}
+
+
+/* =========================================================
+   COLORES DE ICONOS
+   ========================================================= */
+
+.icono-modulo.azul {
+    background: #145fd7;
+}
+
+.icono-modulo.verde {
+    background: #259d61;
+}
+
+.icono-modulo.rojo {
+    background: #b72424;
+}
+
+.icono-modulo.naranja {
+    background: #ef8a00;
+}
+
+.icono-modulo.morado {
+    background: #8a4c9d;
+}
+
+
+/* =========================================================
+   TEXTOS
+   ========================================================= */
+
+.tarjeta-modulo > div:last-of-type {
+    width: 100%;
+}
+
+.tarjeta-modulo h3 {
+    margin: 0 0 18px;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tarjeta-modulo p {
+    margin: 0 auto;
+
+    max-width: 180px;
+
+    color: #ffffff;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   FLECHA VISUAL
+   ========================================================= */
+
+.tarjeta-modulo::after {
+    content: "→";
+
+    position: absolute;
+
+    right: 18px;
+    bottom: 15px;
+
+    color: #1582ff;
+
+    font-size: 27px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+.tarjeta-modulo:hover::after {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   BORDES Y FLECHAS POR MÓDULO
+   ========================================================= */
+
+.tarjeta-guardas {
+    border: 1px solid #145fd7;
+}
+
+.tarjeta-guardas::after {
+    color: #1582ff;
+}
+
+
+.tarjeta-modulo.tarjeta-supervision {
+    border: 1px solid #259d61 !important;
+    box-shadow: 0 0 5px rgba(37, 157, 97, 0.15);
+}
+
+.tarjeta-modulo.tarjeta-supervision::after {
+    color: #24bd68 !important;
+}
+
+
+.tarjeta-panico {
+    border: 1px solid #b72424;
+}
+
+.tarjeta-panico::after {
+    color: #f02b2b;
+}
+
+
+.tarjeta-novedades {
+    border: 1px solid #e5dd21;
+}
+
+.tarjeta-novedades::after {
+    color: #e5dd21;
+}
+
+
+.tarjeta-reportes {
+    border: 1px solid #8a4c9d;
+}
+
+.tarjeta-reportes::after {
+    color: #ad59a7;
+}
+
+
+.tarjeta-administrador {
+    border: 1px solid #6097e8;
+}
+
+.tarjeta-administrador::after {
+    color: #6097e8;
+}
+
+
+.tarjeta-horarios {
+    border: 1px solid #2ed45e;
+}
+
+.tarjeta-horarios::after {
+    color: #2ed45e;
+}
+
+
+.tarjeta-clientes {
+    border: 1px solid #ff9200;
+}
+
+.tarjeta-clientes::after {
+    color: #ff9200;
+}
+
+
+/* =========================================================
+   ICONO SUPERVISIÓN
+   ========================================================= */
+
+.icono-supervision-panel {
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .grid-modulos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .grid-modulos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tarjeta-modulo {
+        height: 270px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .grid-modulos {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-modulo {
+        height: 240px;
+    }
+}

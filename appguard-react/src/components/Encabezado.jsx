@@ -1,8 +1,16 @@
-function Encabezado({ titulo, descripcion }) {
+function Encabezado({ titulo, descripcion, onVolver }) {
   return (
     <header className="encabezado-modulo">
       <div className="titulo-modulo">
-        <span className="volver-panel">←</span>
+
+        <button
+          type="button"
+          className="volver-panel"
+          onClick={onVolver}
+          aria-label="Volver al menú principal"
+        >
+          ←
+        </button>
 
         <div>
           <h1>{titulo}</h1>
@@ -14,7 +22,9 @@ function Encabezado({ titulo, descripcion }) {
         <div>
           <strong>BRAYAN RODRIGUEZ</strong>
           <span>Operador de seguridad</span>
-          <span className="estado-usuario">Activo</span>
+          <span className="estado-usuario">
+            Activo
+          </span>
         </div>
       </div>
     </header>
