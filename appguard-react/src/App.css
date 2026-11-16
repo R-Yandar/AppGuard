@@ -1,4 +1,7 @@
-/* Estructura general de AppGuard */
+﻿/* =========================================================
+   APPGUARD - ESTRUCTURA GENERAL
+   ========================================================= */
+
 .pagina-modulo {
   min-height: 100vh;
   display: flex;
@@ -14,28 +17,46 @@
   background-attachment: fixed;
 }
 
-/* Menú lateral */
+
+/* =========================================================
+   MENÃš LATERAL
+   ========================================================= */
+
 .sidebar-modulo {
   width: 195px;
   min-width: 195px;
   min-height: 100vh;
+
   padding: 15px 11px 12px;
+
   background: #00102f;
+
   border-right: 1px solid rgba(255, 255, 255, 0.45);
 
   display: flex;
   flex-direction: column;
 }
 
-/* Contenido principal */
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================= */
+
 .contenido-modulo {
   flex: 1;
+  min-width: 0;
+
   padding: 30px 42px;
 }
 
-/* Marca del menú */
+
+/* =========================================================
+   MARCA DEL MENÃš
+   ========================================================= */
+
 .marca-modulo {
   text-align: center;
+
   margin-bottom: 22px;
 }
 
@@ -43,6 +64,7 @@
   display: block;
 
   width: 145px;
+  max-width: 100%;
   height: auto;
 
   margin: -10px auto -8px;
@@ -50,19 +72,28 @@
 
 .marca-modulo p {
   margin-top: 3px;
+
   font-size: 11px;
   font-weight: 600;
+
+  color: #ffffff;
 }
 
-/* Opciones del menú */
+
+/* =========================================================
+   OPCIONES DEL MENÃš
+   ========================================================= */
+
 .menu-modulo {
   display: flex;
   flex-direction: column;
+
   gap: 7px;
 }
 
 .menu-modulo a {
   height: 31px;
+
   padding: 0 11px;
 
   display: flex;
@@ -72,50 +103,81 @@
   border-radius: 5px;
 
   color: #ffffff;
+
   text-decoration: none;
+
   font-size: 12px;
+}
+
+.menu-modulo a:hover {
+  background: rgba(18, 99, 223, 0.25);
+
+  border-color: #1263df;
 }
 
 .menu-modulo a:first-child {
   background: #1263df;
+
   border-color: #1263df;
+
   font-weight: 600;
 }
 
-/* Estado del sistema */
+
+/* =========================================================
+   ESTADO DEL SISTEMA
+   ========================================================= */
+
 .estado-modulo {
   margin-top: auto;
+
   padding-bottom: 10px;
+
   text-align: center;
+
   font-size: 11px;
   font-weight: 600;
+
+  color: #ffffff;
 }
 
 .punto-verde {
   display: inline-block;
+
   width: 7px;
   height: 7px;
+
   margin-left: 3px;
+
   background: #17d66b;
+
   border-radius: 50%;
 }
 
-/* ==================================================
-   ENCABEZADO DEL MÓDULO
-   ================================================== */
+
+/* =========================================================
+   ENCABEZADO DEL MÃ“DULO
+   ========================================================= */
 
 .encabezado-modulo {
   display: flex;
+
   justify-content: space-between;
   align-items: flex-start;
 
   margin-bottom: 30px;
 }
 
-/* Título y flecha */
+
+/* =========================================================
+   TÃTULO Y FLECHA
+   ========================================================= */
+
 .titulo-modulo {
   display: flex;
+
   align-items: flex-start;
+
   gap: 12px;
 }
 
@@ -123,10 +185,12 @@
   margin-top: 2px;
 
   color: #ffffff;
+
   font-size: 25px;
+
   text-decoration: none;
 
-  transition: 0.2s;
+  transition: color 0.2s ease;
 }
 
 .volver-panel:hover {
@@ -151,11 +215,15 @@
 }
 
 
-/* Usuario ubicado en la parte superior derecha */
+/* =========================================================
+   USUARIO SUPERIOR DERECHO
+   ========================================================= */
 
 .usuario-modulo {
   display: flex;
+
   align-items: center;
+
   gap: 8px;
 
   font-size: 10px;
@@ -163,6 +231,7 @@
 
 .usuario-modulo > i {
   font-size: 50px;
+
   color: #ffffff;
 }
 
@@ -186,7 +255,9 @@
 
 .estado-usuario {
   display: inline-flex !important;
+
   align-items: center;
+
   gap: 5px;
 }
 
@@ -199,53 +270,88 @@
   height: 6px;
 
   background: #17d66b;
-  border-radius: 50%;
 
+  border-radius: 50%;
 }
 
+
 /* =========================================================
-   BOTÓN VOLVER DEL ENCABEZADO
+   BOTÃ“N VOLVER DEL ENCABEZADO
    ========================================================= */
 
 .boton-volver-encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
 
-    width: 38px;
-    height: 38px;
+  align-items: center;
+  justify-content: center;
 
-    margin-right: 12px;
+  width: 38px;
+  height: 38px;
 
-    border: 1px solid rgba(47, 128, 237, 0.55);
-    border-radius: 8px;
+  margin-right: 12px;
 
-    background: rgba(4, 21, 49, 0.9);
+  border: 1px solid rgba(47, 128, 237, 0.55);
+  border-radius: 8px;
 
-    color: #ffffff;
+  background: rgba(4, 21, 49, 0.9);
 
-    font-size: 20px;
+  color: #ffffff;
 
-    cursor: pointer;
+  font-size: 20px;
 
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .boton-volver-encabezado:hover {
-    background: rgba(16, 64, 120, 0.95);
+  background: rgba(16, 64, 120, 0.95);
 
-    border-color: #2f80ed;
+  border-color: #2f80ed;
 
-    transform: translateX(-2px);
+  transform: translateX(-2px);
 
-    box-shadow:
-        0 0 10px rgba(47, 128, 237, 0.25);
+  box-shadow: 0 0 10px rgba(47, 128, 237, 0.25);
 }
 
 .boton-volver-encabezado i {
-    line-height: 1;
+  line-height: 1;
 }
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/*
+@media (max-width: 900px) {
+  .contenido-modulo {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .pagina-modulo {
+    flex-direction: column;
+  }
+
+  .sidebar-modulo {
+    width: 100%;
+    min-width: 100%;
+    min-height: auto;
+  }
+
+  .contenido-modulo {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .logo-modulo {
+    width: 130px;
+  }
+}
+*/

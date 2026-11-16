@@ -14,6 +14,7 @@ import GestionHorarios from "./components/GestionHorarios";
 import GestionClientes from "./components/GestionClientes";
 
 import "./App.css";
+import "./PersonalEnServicio.css";
 
 function App() {
   const [moduloActivo, setModuloActivo] = useState("inicio");
